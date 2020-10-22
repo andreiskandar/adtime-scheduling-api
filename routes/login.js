@@ -1,8 +1,6 @@
 const express = require('express');
 const manager = require('./manager');
 const router = express.Router();
-const managers = require('./manager')
-
 
 module.exports = router
   .get('/', (req, res) => {
@@ -10,7 +8,8 @@ module.exports = router
   })
 
   .post('/', (req,res) => {
-    let result = managers.find(manager => manager.email == req.body.email);
+    let result = manager.find(managers => managers.email == req.body.email);
+    console.log("WHAT ARE YOU", result)
     if(result) {
       if(result.password == req.body.password) {
         res.status(200).send({
