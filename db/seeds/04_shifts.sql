@@ -1,0 +1,10 @@
+INSERT INTO shifts (category_id, date) VALUES (1, '2020-10-23 10:00:00-08');
+INSERT INTO shifts (category_id, date) VALUES (2, '2020-10-23 11:00:00-08');
+INSERT INTO shifts (category_id, date) VALUES (3, '2020-10-23 12:00:00-08');
+INSERT INTO shifts (category_id, date) VALUES (4, '2020-10-23 13:00:00-08');
+INSERT INTO shifts (category_id, date) VALUES (1, '2020-10-23 10:00:00-08');
+INSERT INTO shifts (category_id, date) VALUES (2, '2020-10-23 11:00:00-08');
+INSERT INTO shifts (category_id, date) VALUES (3, '2020-10-23 12:00:00-08');
+INSERT INTO shifts (category_id, date) VALUES (4, '2020-10-23 13:00:00-08');
+INSERT INTO shifts (category_id, date) VALUES (4, '2020-10-22 15:10:00-08');
+INSERT INTO shifts (category_id, date) VALUES (4, '2020-10-22 15:00:00-08');

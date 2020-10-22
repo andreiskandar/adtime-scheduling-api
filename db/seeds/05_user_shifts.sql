@@ -1,0 +1,10 @@
+INSERT INTO user_shifts (user_id, shift_id) VALUES (1, 1);
+INSERT INTO user_shifts (user_id, shift_id) VALUES (1, 2);
+INSERT INTO user_shifts (user_id, shift_id) VALUES (1, 3);
+INSERT INTO user_shifts (user_id, shift_id) VALUES (1, 4);
+INSERT INTO user_shifts (user_id, shift_id) VALUES (2, 5);
+INSERT INTO user_shifts (user_id, shift_id) VALUES (2, 6);
+INSERT INTO user_shifts (user_id, shift_id) VALUES (2, 7);
+INSERT INTO user_shifts (user_id, shift_id) VALUES (2, 8);
+INSERT INTO user_shifts (user_id, shift_id) VALUES (2, 9);
+INSERT INTO user_shifts (user_id, shift_id) VALUES (2, 10);

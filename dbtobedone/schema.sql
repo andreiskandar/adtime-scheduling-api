@@ -1,3 +1,8 @@
+CREATE TABLE "user_types" (
+  "id" int PRIMARY KEY,
+  "name" string
+);
+
 CREATE TABLE "users" (
   "id" int PRIMARY KEY,
   "name" string,
@@ -8,6 +13,11 @@ CREATE TABLE "users" (
   "slack_user_id" string,
   "created_at" datetime,
   "updated_at" datetime
+);
+
+CREATE TABLE "categories" (
+  "id" int PRIMARY KEY,
+  "name" string
 );
 
 CREATE TABLE "shifts" (
@@ -22,18 +32,13 @@ CREATE TABLE "user_shifts" (
   "user_id" int,
   "shift_id" int,
   "created_at" datetime,
-  "updated_at" datetime
+  "updated_at" datetime, 
+  isPublished boolean
 );
 
-CREATE TABLE "categories" (
-  "id" int PRIMARY KEY,
-  "name" string
-);
 
-CREATE TABLE "user_types" (
-  "id" int PRIMARY KEY,
-  "name" string
-);
+
+
 
 ALTER TABLE "users" ADD FOREIGN KEY ("user_type_id") REFERENCES "user_types" ("id");
 
