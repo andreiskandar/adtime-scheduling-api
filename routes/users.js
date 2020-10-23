@@ -3,20 +3,26 @@ const router = express.Router();
 const { getAllUsers, getUserById } = require('../controllers/users')
 
 //GET /users
-router.get('api/users', (req, res) => {
-  console.log(req)  
-  getAllUsers()
+
+// module.exports = router
+//   .get('/', (req, res) => {
+//     res.status(200).json({hello: 'world'})
+//   })
+
+module.exports = router
+  .get('/', (req, res) => {
+    getAllUsers()
       .then((users) => {
-        res.json({ users })
+        res.status(200).json({ users })
       })
 });
 
 //GET /users/:id
-router.get('api/users/:id', (req, res) => {
-  getUserById(req.params)
+router.get('/:id', (req, res) => {
+  getUserById(req.params.id)
     .then((user) => {
       res.json({ user })
     })
 });
 
-module.exports = router;
+// module.exports = router;

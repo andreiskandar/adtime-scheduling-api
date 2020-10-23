@@ -1,9 +1,9 @@
-const user = require('./users')
+const users = require('./users')
 const login = require('./login')
 const manager = require('./manager')
 
 module.exports = {
   '/': login,
-  '/user': user,
+  '/api/users': users,
   '/manager': manager,
 }
