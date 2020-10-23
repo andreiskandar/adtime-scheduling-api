@@ -1,38 +1,17 @@
 const express = require('express');
 // const manager = require('./manager');
 const router = express.Router();
-// const bodyParser = require("body-parser")
-// router.use(bodyParser.urlencoded({ extended: false }));
 
+ 
+router.get('/', (req, res) => {
+  console.log("WHATEVER")
+  res.status(200).json({hello: 'world'})
+})
 
-// 
-  router.get('/', (req, res) => {
-    console.log("WHATEVER")
-    res.status(200).json({hello: 'world'})
-  })
-
-  router.post('/', (req, res) => {
-    console.log("WTF ARE YOU DOING?", req.body)
-    res.json({message: "Fuck you! FE"})
-    // console.log({res})
-    
-    // console.log("Do you give me body", req.body)
-    // const manager = [
-    //   {
-    //     id: 1,
-    //     firstName: 'John',
-    //     lastName: 'Doe',
-    //     email: 'test@test.com',
-    //     password: 'password',
-    //   },
-    //   {
-    //     id: 2,
-    //     firstName: 'Bob',
-    //     lastName: 'Doe',
-    //     email: 'test2@test.com',
-    //     password: 'password',
-    //   },
-    // ]
+router.post('/', (req, res) => {
+  console.log("WTF ARE YOU DOING?", req.body)
+  res.json({message: "Fuck you! FE"})
+})
     // let result = manager.filter(managers => managers.email === req.body.email);
 
     // console.log("WHAT ARE YOU", result)
@@ -51,5 +30,4 @@ const router = express.Router();
     //     message: "User Not found incorrect!"
     //   })
     // }
-  })
 module.exports = router
