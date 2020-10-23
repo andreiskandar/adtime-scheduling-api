@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     .catch((e) => console.log('getAllUsers error: ', e));
 });
 
-//GET /users/:id
+//GET /api/users/:id
 router.get('/:id', (req, res) => {
   getUserById(req.params.id).then((user) => {
     res.json({ user });
