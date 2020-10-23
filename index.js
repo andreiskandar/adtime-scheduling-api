@@ -1,6 +1,5 @@
 // load .env data into process.env
 require('dotenv').config();
-
 const ENV = process.env.ENV || "development";
 const express = require('express')
 const bodyParser = require("body-parser");
@@ -13,20 +12,13 @@ const morgan     = require('morgan');
 // const db = new Pool(dbParams);
 // db.connect();
 const app = express()
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
-
-
 app.use(morgan('dev'))
-
 for (const [mountPoint, router] of Object.entries(routes)) {
   app.use(mountPoint, router)
 }
-
 const port = process.env.port || 3001;
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
-

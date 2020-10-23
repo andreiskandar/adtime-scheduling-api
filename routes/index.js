@@ -1,9 +1,9 @@
-const employee = require('./employee')
+const user = require('./users')
 const login = require('./login')
 const manager = require('./manager')
 
 module.exports = {
   '/': login,
-  '/employee': employee,
+  '/user': user,
   '/manager': manager,
 }
