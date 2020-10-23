@@ -17,9 +17,15 @@ const getAllUsers = () => {
     }); 
 }
 
+const getLoginCreds = (email, password) => {
+  const queryString = `SELECT email,password FROM users WHERE email=$1 AND password=$2`
+  return db.query(queryString, [email,password])
+}
+
 module.exports = {
   getUserById, 
-  getAllUsers
+  getAllUsers,
+  getLoginCreds
 }
 
 // function list() {
