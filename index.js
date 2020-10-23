@@ -6,23 +6,12 @@ const express = require('express')
 const bodyParser = require("body-parser");
 // const sass       = require("node-sass-middleware");
 const routes = require('./routes')
-<<<<<<< HEAD
 const morgan     = require('morgan');
-// PG database client/connection setup
-// const { Pool } = require('pg');
-// const dbParams = require('./lib/db.js');
-// const db = new Pool(dbParams);
-// db.connect();
-=======
-// const router = require("./routes/users");
 
->>>>>>> f35d5cd7419c9042c79c3d5043e8828d4f436268
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
-
 
 app.use(morgan('dev'))
 

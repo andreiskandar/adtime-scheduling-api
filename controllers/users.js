@@ -1,7 +1,6 @@
 const Model = require('../models/employee')
 const db = require('./db')
 
-
 //GET user by ID
 const getUserById = (id) => {
   return db.query('SELECT * FROM users WHERE id = $1', [id])
@@ -12,7 +11,7 @@ const getUserById = (id) => {
 
 //GET all users
 const getAllUsers = () => {
-  return db.query('SELECT * FROM users', [])
+  return db.query('SELECT * FROM users')
     .then((response) => {
       return response.rows;
     }); 
