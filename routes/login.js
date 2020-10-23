@@ -1,17 +1,22 @@
 const express = require('express');
 // const manager = require('./manager');
 const router = express.Router();
-const bodyParser = require("body-parser")
-router.use(bodyParser.urlencoded({ extended: false }));
-const { getAllUsers, getUserById } = require('../controllers/users')
+// const bodyParser = require("body-parser")
+// router.use(bodyParser.urlencoded({ extended: false }));
 
-module.exports = router
-  .get('/', (req, res) => {
+
+// 
+  router.get('/', (req, res) => {
+    console.log("WHATEVER")
     res.status(200).json({hello: 'world'})
   })
 
-  .post('/', (req,res) => {
-    console.log("Do you give me body", req.body)
+  router.post('/', (req, res) => {
+    console.log("WTF ARE YOU DOING?", req.body)
+    res.json({message: "Fuck you! FE"})
+    // console.log({res})
+    
+    // console.log("Do you give me body", req.body)
     // const manager = [
     //   {
     //     id: 1,
@@ -28,22 +33,23 @@ module.exports = router
     //     password: 'password',
     //   },
     // ]
-    let result = manager.filter(managers => managers.email === req.body.email);
+    // let result = manager.filter(managers => managers.email === req.body.email);
 
-    console.log("WHAT ARE YOU", result)
-    if(result) {
-      if(result[0].password === req.body.password) {
-        res.status(200).send({
-          message: "Successful login!"
-        })
-      } else {
-        res.status(200).send({
-          message: "Password Incorrect!"
-        })
-      }
-    } else {
-      res.status(200).send({
-        message: "User Not found incorrect!"
-      })
-    }
+    // console.log("WHAT ARE YOU", result)
+    // if(result) {
+    //   if(result[0].password === req.body.password) {
+    //     res.status(200).send({
+    //       message: "Successful login!"
+    //     })
+    //   } else {
+    //     res.status(200).send({
+    //       message: "Password Incorrect!"
+    //     })
+    //   }
+    // } else {
+    //   res.status(200).send({
+    //     message: "User Not found incorrect!"
+    //   })
+    // }
   })
+module.exports = router
