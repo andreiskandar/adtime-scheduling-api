@@ -12,7 +12,7 @@ router.get('api/users', (req, res) => {
 });
 
 //GET /users/:id
-router.get('api/users', (req, res) => {
+router.get('api/users/:id', (req, res) => {
   getUserById(req.params)
     .then((user) => {
       res.json({ user })
