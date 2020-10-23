@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
   console.log(req.body.password)
   getLoginCreds(req.body.email, req.body.password)
     .then((response) => {
-      console.log("Do you give me an array", response)
+      console.log("Do you give me an array", response.rows[0])
       res.json({message: "Fuck you! FE"})
     })
 })
