@@ -9,6 +9,7 @@ const { getAllUsers, getUserById } = require('../controllers/users')
 //     res.status(200).json({hello: 'world'})
 //   })
 
+//GET /api/users
 router.get('/', (req, res) => {
   getAllUsers()
     .then((users) => {
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
     })
 });
 
-//GET /users/:id
+//GET /api/users/:id
 router.get('/:id', (req, res) => {
   getUserById(req.params.id)
     .then((user) => {
