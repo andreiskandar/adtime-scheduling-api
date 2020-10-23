@@ -9,12 +9,11 @@ const { getAllUsers, getUserById } = require('../controllers/users')
 //     res.status(200).json({hello: 'world'})
 //   })
 
-module.exports = router
-  .get('/', (req, res) => {
-    getAllUsers()
-      .then((users) => {
-        res.status(200).json({ users })
-      })
+router.get('/', (req, res) => {
+  getAllUsers()
+    .then((users) => {
+      res.status(200).json({ users })
+    })
 });
 
 //GET /users/:id
@@ -25,4 +24,4 @@ router.get('/:id', (req, res) => {
     })
 });
 
-// module.exports = router;
+module.exports = router;
