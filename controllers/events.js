@@ -20,7 +20,20 @@ const getShiftsByUser = () => {
 
 //should accept 3 arguments: user_id, shift_id, category_id, date
 const addShiftsByUser = (user_id, shift_id, category_id, date) => {
-  const queryString = `
+  // // shift_id = [1,2,3,4,5]
+  // let qS = ''
+  // for(let i of shift_id){
+  //   qS +=
+  //     `INSERT INTO events (user_id, shift_id, category_id, event_date, isPublished) VALUES ($1::integer, ${i}, $2::integer, $3::date, f)`;
+
+  // }
+  // const qString = qS, [user_id]
+
+  // return db.query(qString).then((response) => {
+  //   return response.rows;
+  // });
+
+  const queryString = qS`
     INSERT INTO events (user_id, shift_id, category_id, event_date, isPublished) VALUES ($1::integer, $2::integer, $3::integer, $4::date, f)
   
   `;
