@@ -1,32 +1,30 @@
-const Model = require('../models/employee')
-const db = require('./db')
+const Model = require('../models/employee');
+const db = require('./db');
 
 //GET user by ID
 const getUserById = (id) => {
-  return db.query('SELECT * FROM users WHERE id = $1', [id])
-    .then((response) => {
-      return response.rows[0];
-    }); 
-}
+  return db.query('SELECT * FROM users WHERE id = $1', [id]).then((response) => {
+    return response.rows[0];
+  });
+};
 
 //GET all users
 const getAllUsers = () => {
-  return db.query('SELECT * FROM users')
-    .then((response) => {
-      return response.rows;
-    }); 
-}
+  return db.query('SELECT * FROM users').then((response) => {
+    return response.rows;
+  });
+};
 
 const getLoginCreds = (email, password) => {
-  const queryString = `SELECT email,password FROM users WHERE email=$1 AND password=$2`
-  return db.query(queryString, [email,password])
-}
+  const queryString = `SELECT email,password FROM users WHERE email=$1 AND password=$2`;
+  return db.query(queryString, [email, password]);
+};
 
 module.exports = {
-  getUserById, 
+  getUserById,
   getAllUsers,
-  getLoginCreds
-}
+  getLoginCreds,
+};
 
 // function list() {
 //   // this needs to be massaged result of pg.query
@@ -62,7 +60,7 @@ module.exports = {
 //  // delete employee by id
 // }
 
-// // model specific ops 
+// // model specific ops
 
 // function changeShift(id) {
 //  // change the shift for an employee
