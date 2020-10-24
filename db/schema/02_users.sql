@@ -7,6 +7,5 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   avatar VARCHAR(255),
-  slack_user_id VARCHAR(255),
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+  slack_user_id VARCHAR(255)
 );
