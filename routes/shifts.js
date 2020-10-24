@@ -12,12 +12,12 @@ router.get('/', (req, res) => {
     .catch((e) => console.log('getAllShifts: ', e));
 });
 
-router.get('/events', (req, res) => {
+router.get('/events/', (req, res) => {
   getShiftsByUser()
     .then((data) => {
       res.json({ data });
     })
-    .catch((e) => console.log('getAllShifts: ', e));
+    .catch((e) => console.log('getShiftsByUser: ', e));
 });
 
 router.get;
