@@ -77,3 +77,63 @@ INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (4, 10, 1
 INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (4, 11, 1, '2020-10-21');
 INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (4, 12, 1, '2020-10-21');
 
+
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 5, 2, '2020-10-24');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 6, 1, '2020-10-24');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 7, 1, '2020-10-24');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 8, 1, '2020-10-24');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 9, 1, '2020-10-24');
+
+
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 8, 2, '2020-10-23');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 9, 1, '2020-10-23');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 10, 1, '2020-10-23');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 11, 1, '2020-10-23');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 12, 1, '2020-10-23');
+
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 8, 2, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 9, 1, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 10, 1, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 11, 1, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (5, 12, 1, '2020-10-21');
+
+
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 1, 2, '2020-10-23');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 2, 1, '2020-10-23');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 3, 1, '2020-10-23');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 4, 1, '2020-10-23');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 5, 1, '2020-10-23');
+
+
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 5, 2, '2020-10-25');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 6, 1, '2020-10-25');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 7, 1, '2020-10-25');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 8, 1, '2020-10-25');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 9, 1, '2020-10-25');
+
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 8, 2, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 9, 1, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 10, 1, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 11, 1, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (6, 12, 1, '2020-10-21');
+
+
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 5, 2, '2020-10-19');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 6, 1, '2020-10-19');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 7, 1, '2020-10-19');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 8, 1, '2020-10-19');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 9, 1, '2020-10-19');
+
+
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 10, 2, '2020-10-20');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 11, 1, '2020-10-20');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 12, 1, '2020-10-20');
+
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 7, 2, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 8, 1, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 9, 1, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 10, 1, '2020-10-21');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 11, 1, '2020-10-21');
+
+
+
