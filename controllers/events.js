@@ -1,5 +1,21 @@
+const eventShiftModel = require('../models/employee')
 const Model = require('../models/employee');
 const db = require('./db');
+
+async function grabShiftId(shiftId, eventDate, userId) {
+  const results = await eventShiftModel.removeShiftIds(shiftId, eventDate, userId)
+  console.log("RESULTS", results)
+  if (!results.length) {
+    throw new Error(`EventShiftController: Deleted Succesfully`)
+  }
+  const dbUser = results.pop()
+  if (shift_id !== dbUser.shift_id) {
+    throw new Error(`EventShiftController: Given id "${shift_id}" does not match dbUser shift id "${dbUser.shift_id}"`)
+  }
+  return dbUser
+}
+
+
 
 //GET all shifts by user
 
@@ -55,8 +71,13 @@ const updateShiftString = `UPDATE events SET user_id = 2
 WHERE user_id = 3 AND shift_id IN (8,9) AND event_date = '2020-10-27';`;
 
 module.exports = {
-  getShiftsByUser, addShiftsByUser, publishWeek
+  getShiftsByUser, 
+  addShiftsByUser, 
+  publishWeek, 
+  grabShiftId,
 };
+
+
 
 
 /* 
