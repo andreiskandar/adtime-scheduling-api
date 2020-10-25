@@ -34,8 +34,6 @@ const getShiftsByUser = () => {
     }
   };
 
-addShiftsByUser(7, [3, 4, 5, 6, 7], 1, '2020-10-22');
-
 // react should be able to select multiple grids (find out what event listener to use. onClickHold)
 const updateShiftString = `UPDATE events SET user_id = 2
 WHERE user_id = 3 AND shift_id IN (8,9) AND event_date = '2020-10-27';`;
