@@ -7,5 +7,6 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   avatar VARCHAR(255),
-  slack_user_id VARCHAR(255)
+  slack_user_id VARCHAR(255),
+  color VARCHAR(10)
 );
