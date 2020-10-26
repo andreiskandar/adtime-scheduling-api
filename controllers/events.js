@@ -5,9 +5,6 @@ const db = require('./db');
 async function grabShiftId(shiftId, eventDate, userId) {
   const results = await eventShiftModel.removeShiftIds(shiftId, eventDate, userId);
   console.log('RESULTS', results);
-  if (!results.length) {
-    console.log(`EventShiftController: Deleted Succesfully`);
-  }
   return true;
 }
 
