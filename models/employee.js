@@ -5,8 +5,7 @@ function removeShiftIds(shiftId, eventDate, userId) {
   const cancelShift = (queryString, shiftId) => {
     return  db.query(queryString, [shiftId, eventDate, userId])
       .then((response) => {
-        console.log("RESPONSE", response)
-        return;
+        return true;
       })
       .catch((err) => {
         console.error("ERROR", err)

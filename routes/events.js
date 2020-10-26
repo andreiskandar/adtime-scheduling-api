@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { publishWeek, grabShiftId } = require('../controllers/events');
+const { publishWeek, grabShiftId, addShiftsByUser } = require('../controllers/events');
 const cancelController = require('../controllers/events')
 // //GET all Events
 // router.get('/events/', (req, res) => {
@@ -12,13 +12,13 @@ const cancelController = require('../controllers/events')
 // });
 
 //PUT updates event status
-router.put('/', (req, res) => {
+router.put('/publish', (req, res) => {
   const { publish, firstDay, lastDay } = req.body;
   publishWeek(publish, firstDay, lastDay).catch((e) => console.log('publishWeek ERROR', e));
 });
 
-//ADD EVENTS 
-router.post('/', async (req, res) => {
+// ADD EVENTS 
+router.post('/add', async (req, res) => {
   try { 
     const {user_id, shift_id, category_id, event_date} = req.body
     const add = await addShiftsByUser(user_id, shift_id, category_id, event_date)
@@ -30,13 +30,12 @@ router.post('/', async (req, res) => {
 });
 
 // DELETE specific or many event_shifts
-// /api/events/remove
-router.delete('/', async (req,res) => {
+// /api/events/delete
+router.delete('/delete', async (req,res) => {
   try {
-    const {shiftId, eventDate, userId} = req.query
-
-    const cancelShift = await grabShiftId(shiftId, eventDate, userId)
-    console.log("TEST TEST", cancelShift)
+    const {shift_id, event_date, user_id} = req.query
+    const cancelShift = await grabShiftId(shift_id, event_date, user_id)
+   
     res.status(200).send('OKAY')
   } catch(err) {
     console.error('RemoveShiftIdRoute:', err)
