@@ -17,8 +17,8 @@ async function grabShiftId(shiftId, eventDate, userId) {
 
 //GET all shifts by user
 
-const getShiftsByUser = () => {
-  // should receive user_id, date range
+const getShiftsByWeek = () => {
+  // should receive date range
   const queryString = `
           SELECT users.id as user_id, users.name as name, shifts.hours as hours, events.event_date, 
           shifts.id as shift_id, events.category_id as category_id, events.isPublished as isPublished
@@ -67,7 +67,7 @@ const updateShiftString = `UPDATE events SET user_id = 2
 WHERE user_id = 3 AND shift_id IN (8,9) AND event_date = '2020-10-27';`;
 
 module.exports = {
-  getShiftsByUser,
+  getShiftsByWeek,
   addShiftsByUser,
   publishWeek,
   grabShiftId,

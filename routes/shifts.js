@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getAllShifts } = require('../controllers/shifts');
-const { getShiftsByUser, publishWeek } = require('../controllers/events');
+const { getShiftsByWeek, publishWeek } = require('../controllers/events');
 
 //GET /users
 router.get('/', (req, res) => {
@@ -13,11 +13,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/events/', (req, res) => {
-  getShiftsByUser()
+  getShiftsByWeek()
     .then((data) => {
       res.json({ data });
     })
-    .catch((e) => console.log('getShiftsByUser: ', e));
+    .catch((e) => console.log('getShiftsByWeek: ', e));
 });
 
 router.get;
