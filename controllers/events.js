@@ -1,21 +1,19 @@
-const eventShiftModel = require('../models/employee')
+const eventShiftModel = require('../models/employee');
 const Model = require('../models/employee');
 const db = require('./db');
 
 async function grabShiftId(shiftId, eventDate, userId) {
-  const results = await eventShiftModel.removeShiftIds(shiftId, eventDate, userId)
-  console.log("RESULTS", results)
+  const results = await eventShiftModel.removeShiftIds(shiftId, eventDate, userId);
+  console.log('RESULTS', results);
   if (!results.length) {
-    throw new Error(`EventShiftController: Deleted Succesfully`)
+    throw new Error(`EventShiftController: Deleted Succesfully`);
   }
-  const dbUser = results.pop()
+  const dbUser = results.pop();
   if (shift_id !== dbUser.shift_id) {
-    throw new Error(`EventShiftController: Given id "${shift_id}" does not match dbUser shift id "${dbUser.shift_id}"`)
+    throw new Error(`EventShiftController: Given id "${shift_id}" does not match dbUser shift id "${dbUser.shift_id}"`);
   }
-  return dbUser
+  return dbUser;
 }
-
-
 
 //GET all shifts by user
 
@@ -23,7 +21,7 @@ const getShiftsByUser = () => {
   // should receive user_id, date range
   const queryString = `
           SELECT users.id as user_id, users.name as name, shifts.hours as hours, events.event_date, 
-          shifts.id as shift_id
+          shifts.id as shift_id, events.category_id as category_id, events.isPublished as isPublished
           FROM events
           JOIN shifts ON events.shift_id = shifts.id
           JOIN users ON events.user_id = users.id
@@ -40,13 +38,12 @@ const addShiftsByUser = (user_id, shift_id, category_id, date) => {
     return db.query(queryString, [user_id, shiftId, category_id, date]).then((response) => {
       return response.rows;
     });
-  }
+  };
   for (const shiftId of shift_id) {
-    console.log(shiftId)
-    let queryString =`
+    let queryString = `
     INSERT INTO events (user_id, shift_id, category_id, event_date) 
     VALUES ($1::integer, $2::integer, $3::integer, $4::date);`;
-    addFunction(queryString, shiftId)
+    addFunction(queryString, shiftId);
   }
 };
 
@@ -62,7 +59,6 @@ const publishWeek = (publish, firstDay, lastDay) => {
   UPDATE events SET isPublished = $1
   WHERE event_date >= $2 AND event_date <= $3;`;
   return db.query(queryString, [publish, firstDay, lastDay]).then((response) => {
-    console.log('I AM response', response)
     return response.rows;
   });
 };
@@ -71,14 +67,11 @@ const updateShiftString = `UPDATE events SET user_id = 2
 WHERE user_id = 3 AND shift_id IN (8,9) AND event_date = '2020-10-27';`;
 
 module.exports = {
-  getShiftsByUser, 
-  addShiftsByUser, 
-  publishWeek, 
+  getShiftsByUser,
+  addShiftsByUser,
+  publishWeek,
   grabShiftId,
 };
-
-
-
 
 /* 
 Create PUT request
@@ -86,5 +79,3 @@ Create routes
 Axios PUT inside the onClick function (promise)
 SetState for Button to "Published"
 */
-
-
