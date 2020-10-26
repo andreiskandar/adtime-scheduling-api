@@ -25,7 +25,7 @@ router.post('/add', async (req, res) => {
 router.delete('/delete', async (req, res) => {
   try {
     const { shift_id, event_date, user_id } = req.query;
-    const cancelShift = await grabShiftId(shift_id, event_date, user_id);
+    await grabShiftId(shift_id, event_date, user_id);
     res.status(200).send('OKAY');
   } catch (err) {
     console.error('RemoveShiftIdRoute:', err);

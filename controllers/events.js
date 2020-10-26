@@ -3,8 +3,7 @@ const Model = require('../models/employee');
 const db = require('./db');
 
 async function grabShiftId(shiftId, eventDate, userId) {
-  const results = await eventShiftModel.removeShiftIds(shiftId, eventDate, userId);
-  console.log('RESULTS', results);
+  await eventShiftModel.removeShiftIds(shiftId, eventDate, userId);
   return true;
 }
 
