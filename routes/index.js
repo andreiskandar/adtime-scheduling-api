@@ -10,5 +10,5 @@ module.exports = {
   '/manager': manager,
   '/api/shifts': shifts,
   '/api/events/publish': events,
-  '/api/shiftid/remove': events,
+  '/api/shiftid/delete': events,
 };
