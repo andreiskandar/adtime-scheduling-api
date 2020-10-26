@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getAllShifts } = require('../controllers/shifts');
-const { getShiftsByWeek, publishWeek } = require('../controllers/events');
+const { getShiftsByWeek } = require('../controllers/events');
 
 //GET /users
 router.get('/', (req, res) => {

@@ -17,15 +17,17 @@ router.put('/', (req, res) => {
   publishWeek(publish, firstDay, lastDay).catch((e) => console.log('publishWeek ERROR', e));
 });
 
-//ADD EVENTS 
+//ADD EVENTS
 router.post('/', async (req, res) => {
-  try { 
-    const {user_id, shift_id, category_id, event_date} = req.body
-    const add = await addShiftsByUser(user_id, shift_id, category_id, event_date)
-    res.status(200).json(add)
-  } catch(err) {
-    console.error('addEvents ERROR:', err)
-    res.status(400).json({msg: 'Not sure what you are trying to accomplish...'})
+  try {
+    const { user_id, shift_id, category_id, event_date } = req.body;
+    const add = await addShiftsByUser(user_id, shift_id, category_id, event_date);
+
+    console.log('res:', res);
+    res.status(200).json(add);
+  } catch (err) {
+    console.error('addEvents ERROR:', err);
+    res.status(400).json({ msg: 'Not sure what you are trying to accomplish...' });
   }
 });
 
