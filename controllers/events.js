@@ -6,13 +6,9 @@ async function grabShiftId(shiftId, eventDate, userId) {
   const results = await eventShiftModel.removeShiftIds(shiftId, eventDate, userId);
   console.log('RESULTS', results);
   if (!results.length) {
-    throw new Error(`EventShiftController: Deleted Succesfully`);
+    console.log(`EventShiftController: Deleted Succesfully`);
   }
-  const dbUser = results.pop();
-  if (shift_id !== dbUser.shift_id) {
-    throw new Error(`EventShiftController: Given id "${shift_id}" does not match dbUser shift id "${dbUser.shift_id}"`);
-  }
-  return dbUser;
+  return true;
 }
 
 //GET all shifts by user

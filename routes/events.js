@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { publishWeek, grabShiftId, addShiftsByUser } = require('../controllers/events');
-
+const { publishWeek } = require('../controllers/events');
+const cancelController = require('../controllers/events')
 // //GET all Events
 // router.get('/events/', (req, res) => {
 //   getShiftsByWeek()
@@ -31,17 +31,20 @@ router.post('/', async (req, res) => {
 
 // DELETE specific or many event_shifts
 // /api/events/remove
-router.delete('/', async (req, res) => {
+router.delete('/', async (req,res) => {
+  console.log("REQ BODY", req.body)
+  console.log("REQ QUERY", req.query)
   try {
-    const { shiftId, eventDate, userId } = req.query;
-    console.log('userId:', userId);
-    console.log('eventDate:', eventDate);
-    console.log('shiftId:', shiftId);
-    const test = await grabShiftId(shiftId, eventDate, userId);
-    res.status(200).json({});
-  } catch (err) {
-    console.error('RemoveShiftIdRoute:', err);
-    res.status(401).json({ msg: 'Invalid Shift IDs' });
+    const {shiftId, eventDate, userId} = req.query
+    // console.log('userId:', userId)
+    // console.log('eventDate:', eventDate)
+    // console.log('shiftId:', shiftId)
+    const test = await cancelController.grabShiftId(shiftId, eventDate, userId)
+    console.log("TEST TEST", test)
+    res.status(200).send('OKAY')
+  } catch(err) {
+    console.error('RemoveShiftIdRoute:', err)
+    res.status(401).json({msg: "Invalid Shift IDs"})
   }
 });
 
