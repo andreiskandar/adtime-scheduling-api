@@ -8,13 +8,12 @@ router.put('/publish', (req, res) => {
   publishWeek(publish, firstDay, lastDay).catch((e) => console.log('publishWeek ERROR', e));
 });
 
-//ADD EVENTS
+// ADD EVENTS
 router.post('/add', async (req, res) => {
   try {
     const { user_id, shift_id, category_id, event_date } = req.body;
     const add = await addShiftsByUser(user_id, shift_id, category_id, event_date);
-    res.send(add);
-    // res.status(200)
+    res.status(200).json(add);
   } catch (err) {
     console.error('addEvents ERROR:', err);
     res.status(400).json({ msg: 'Not sure what you are trying to accomplish...' });
@@ -22,15 +21,12 @@ router.post('/add', async (req, res) => {
 });
 
 // DELETE specific or many event_shifts
-// /api/events/remove
+// /api/events/delete
 router.delete('/delete', async (req, res) => {
   try {
-    console.log('REQ query:', req.query);
-    // console.log('userId:', userId);
-    // console.log('eventDate:', eventDate);
-    // console.log('shiftId:', shiftId);
-    // const test = await grabShiftId(shiftId, eventDate, userId);
-    res.status(200).json({});
+    const { shift_id, event_date, user_id } = req.query;
+    const cancelShift = await grabShiftId(shift_id, event_date, user_id);
+    res.status(200).send('OKAY');
   } catch (err) {
     console.error('RemoveShiftIdRoute:', err);
     res.status(401).json({ msg: 'Invalid Shift IDs' });
