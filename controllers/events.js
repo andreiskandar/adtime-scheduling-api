@@ -36,7 +36,7 @@ const addShiftsByUser = (user_id, shift_id, category_id, date) => {
     let queryString = `
     INSERT INTO events (user_id, shift_id, category_id, event_date) 
     VALUES ($1::integer, $2::integer, $3::integer, $4::date);`;
-    shiftPromises.push(addFunction(queryString, shiftId));
+    addFunction(queryString, shiftId);
   }
 };
 
