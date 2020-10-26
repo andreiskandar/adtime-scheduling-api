@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { publishWeek, grabShiftId } = require('../controllers/events');
+const { publishWeek, grabShiftId, addShiftsByUser } = require('../controllers/events');
 const cancelController = require('../controllers/events')
 // //GET all Events
 // router.get('/events/', (req, res) => {

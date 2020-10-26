@@ -9,6 +9,7 @@ module.exports = {
   '/api/users': users,
   '/manager': manager,
   '/api/shifts': shifts,
+  '/api/events/add': events,
   '/api/events/publish': events,
-  '/api/shiftid/delete': events,
+  '/api/shiftid/delete': events
 };
