@@ -32,10 +32,11 @@ const params = {
 const customMessage = `Hello World from MomentBot ${Date.now()}`;
 
 bot.on('start', () => {
-  schedule.scheduleJob('2 * * * *', () => {
-    bot.postMessage('U01DHGWDFPS', `${customMessage}`, params);
-    // bot.postMessageToChannel('general', `${customMeåssage}`, params);
-  });
+  // schedule.scheduleJob('* * * * *', () => {
+  bot.postMessageToUser('david.m.ramalho', `${customMessage}`, params);
+  bot.postMessageToUser('thai.hl.do', `${customMessage}`, params);
+  bot.postMessageToUser('andre.m.iskandar', `${customMessage}`, params);
+  // });
 });
 
 const port = process.env.port || 3001;
