@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 // const sass       = require("node-sass-middleware");
 const routes = require('./routes');
 const morgan = require('morgan');
-const { bot, params } = require('./momentBot/bot');
+const { bot, params, customMessage } = require('./momentBot/bot');
 const schedule = require('node-schedule');
 
 const app = express();
@@ -20,14 +20,12 @@ for (const [mountPoint, router] of Object.entries(routes)) {
   app.use(mountPoint, router);
 }
 
-const customMessage = `Hello World from MomentBot ${Date.now()}`;
-
 bot.on('start', () => {
-  // schedule.scheduleJob('* * * * *', () => {
-  // bot.postMessageToUser('david.m.ramalho', `${customMessage}`, params);
-  // bot.postMessageToUser('thai.hl.do', `${customMessage}`, params);
-  bot.postMessageToUser('andre.m.iskandar', `${customMessage}`, params);
-  // });
+  schedule.scheduleJob('* * * * *', () => {
+    // bot.postMessageToUser('david.m.ramalho', `${customMessage}`, params);
+    // bot.postMessageToUser('thai.hl.do', `${customMessage}`, params);
+    bot.postMessageToUser('andre.m.iskandar', `${customMessage}`, params);
+  });
 });
 
 const port = process.env.port || 3001;
