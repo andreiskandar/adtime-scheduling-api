@@ -1,4 +1,4 @@
-INSERT INTO categories (name) VALUES ('interview');
-INSERT INTO categories (name) VALUES ('lecture');
-INSERT INTO categories (name) VALUES ('work');
-INSERT INTO categories (name) VALUES ('mentoring');
+INSERT INTO categories (name) VALUES ('Mentor');
+INSERT INTO categories (name) VALUES ('Lecture');
+INSERT INTO categories (name) VALUES ('Interview');
+INSERT INTO categories (name) VALUES ('Breakout');
