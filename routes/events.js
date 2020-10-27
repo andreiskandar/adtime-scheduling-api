@@ -6,7 +6,8 @@ const { publishWeek, grabShiftId, addShiftsByUser, transferShift } = require('..
 router.put('/transfer', async (req, res) => {
   try {
     const { user_id, shift_id, category_id, event_date, transferToId } = req.body;
-    const transfer = await transferShift(user_id, shift_id, transferToId);
+    console.log('req.body event_date:', event_date);
+    const transfer = await transferShift(user_id, shift_id, transferToId, event_date);
     res.status(200).json(transfer);
   } catch (err) {
     console.error('Transfer of Shifts Error: ', err);
