@@ -5,7 +5,7 @@ const { getCategories } = require('../controllers/categories');
 router.get('/', (req, res) => {
   getCategories()
     .then((data) => {
-      res.json({ data });
+      res.send(data);
     })
     .catch((e) => {
       console.log('getCategories', e);

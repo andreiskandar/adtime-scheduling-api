@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.get('/events/', (req, res) => {
   getShiftsByWeek()
     .then((data) => {
-      res.json({ data });
+      res.send(data);
     })
     .catch((e) => console.log('getShiftsByWeek: ', e));
 });

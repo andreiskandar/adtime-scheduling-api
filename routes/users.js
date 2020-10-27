@@ -6,7 +6,7 @@ const { getAllUsers, getUserById } = require('../controllers/users');
 router.get('/', (req, res) => {
   getAllUsers()
     .then((users) => {
-      res.status(200).json({ users });
+      res.status(200).send(users);
     })
     .catch((e) => console.log('getAllUsers error: ', e));
 });
