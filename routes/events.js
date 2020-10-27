@@ -1,6 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const { publishWeek, grabShiftId, addShiftsByUser } = require('../controllers/events');
+const { publishWeek, grabShiftId, addShiftsByUser, transferShift } = require('../controllers/events');
+
+// PUT to update and Transfer Shifts
+router.put('/transfer', async (req, res) => {
+  try {
+    const {user_id, shift_id, category_id, event_date, transferToId} = req.query
+    const transfer = await transferShift(user_id, shift_id, transferToId)
+    res.status(200).json(transfer)
+  } catch(err) {
+    console.error("Transfer of Shifts Error: ", err)
+    res.status(400).json({msg: "Cannot complete transfer of shifts from routes"})
+  }
+});
 
 //PUT updates event status
 router.put('/publish', (req, res) => {

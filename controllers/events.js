@@ -1,14 +1,23 @@
 const eventShiftModel = require('../models/employee');
+const transferShiftModel = require('../models/transfershift')
 const Model = require('../models/employee');
 const db = require('./db');
+
+async function transferShift(userId, shiftId, transferToId) {
+  console.log('transferToId:', transferToId)
+  console.log("CONTROLLER SHIFT ID", shiftId)
+  const results = await transferShiftModel.transferShiftId(userId, shiftId, transferToId)
+  // console.log("RESULTS OF TRANSER", results)
+  return true;
+};
+
 
 async function grabShiftId(shiftId, eventDate, userId) {
   await eventShiftModel.removeShiftIds(shiftId, eventDate, userId);
   return true;
-}
+};
 
 //GET all shifts by user
-
 const getShiftsByWeek = () => {
   // should receive date range
   const queryString = `
@@ -64,6 +73,7 @@ module.exports = {
   addShiftsByUser,
   publishWeek,
   grabShiftId,
+  transferShift,
 };
 
 /* 
