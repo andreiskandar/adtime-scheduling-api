@@ -18,7 +18,7 @@ const getShiftsByWeek = () => {
           FROM events
           JOIN shifts ON events.shift_id = shifts.id
           JOIN users ON events.user_id = users.id
-          WHERE event_date >= '2020-10-19' AND event_date <= '2020-10-26'
+          WHERE event_date >= '2020-10-01' AND event_date <= '2020-11-26'
           ORDER BY event_date;`;
   return db.query(queryString).then((response) => {
     return response.rows;
