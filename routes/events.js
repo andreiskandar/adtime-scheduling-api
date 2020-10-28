@@ -14,7 +14,10 @@ router.put('/transfer', async (req, res) => {
   try {
     const { user_id, shift_id, category_id, event_date, transferToUserId } = req.body;
     console.log('ROUTE  BE');
+    console.log('shift_id:', shift_id);
     console.log('transferToUserId:', transferToUserId);
+    console.log('ROUTE  BE ==========');
+
     const transfer = await transferShift(user_id, shift_id, transferToUserId, event_date, category_id);
     res.status(200).json(transfer);
   } catch (err) {
