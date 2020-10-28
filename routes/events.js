@@ -25,7 +25,8 @@ router.post('/add', async (req, res) => {
   try {
     const { user_id, shift_id, category_id, event_date } = req.body;
     await addShiftsByUser(user_id, shift_id, category_id, event_date);
-    res.status(200);
+    console.log('I Ran!')
+    res.status(200).send();
   } catch (err) {
     console.error('addEvents ERROR:', err);
     res.status(400).json({ msg: 'Not sure what you are trying to accomplish...' });
@@ -38,7 +39,7 @@ router.delete('/delete', async (req, res) => {
   try {
     const { shift_id, event_date, user_id } = req.query;
     await grabShiftId(shift_id, event_date, user_id);
-    res.status(200);
+    res.status(200).send();
   } catch (err) {
     console.error('RemoveShiftIdRoute:', err);
     res.status(401).json({ msg: 'Invalid Shift IDs' });
