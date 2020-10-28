@@ -3,10 +3,8 @@ const transferShiftModel = require('../models/transfershift');
 const Model = require('../models/employee');
 const db = require('./db');
 
-async function transferShift(userId, shiftId, transferToId) {
-  console.log('transferToId:', transferToId);
-  console.log('CONTROLLER SHIFT ID', shiftId);
-  const results = await transferShiftModel.transferShiftId(userId, shiftId, transferToId);
+async function transferShift(userId, shiftId, transferToId, category_id) {
+  const results = await transferShiftModel.transferShiftId(userId, shiftId, transferToId, category_id);
   // console.log("RESULTS OF TRANSER", results)
   return true;
 }
