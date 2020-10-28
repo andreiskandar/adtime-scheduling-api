@@ -3,9 +3,14 @@ const transferShiftModel = require('../models/transfershift');
 const Model = require('../models/employee');
 const db = require('./db');
 
-async function transferShift(userId, shiftId, transferToId, category_id) {
-  const results = await transferShiftModel.transferShiftId(userId, shiftId, transferToId, category_id);
-  // console.log("RESULTS OF TRANSER", results)
+async function transferShift(userId, shiftId, transferToId, event_date, category_id) {
+  console.log("CONTROLLER SECTION")
+  console.log('category_id:', category_id)
+  console.log('event_date:', event_date)
+  console.log('transferToId:', transferToId)
+  console.log('shiftId:', shiftId)
+  console.log('userId:', userId)
+  await transferShiftModel.transferShiftId(userId, shiftId, transferToId, event_date, category_id);
   return true;
 }
 
@@ -23,7 +28,7 @@ const getShiftsByWeek = () => {
           FROM events
           JOIN shifts ON events.shift_id = shifts.id
           JOIN users ON events.user_id = users.id
-          WHERE event_date >= '2020-10-01' AND event_date <= '2020-11-26'
+          WHERE event_date >= '2020-10-19' AND event_date <= '2020-11-26'
           ORDER BY event_date;`;
   return db.query(queryString).then((response) => {
     return response.rows;
@@ -65,10 +70,25 @@ const publishWeek = (publish, firstDay, lastDay) => {
 const updateShiftString = `UPDATE events SET user_id = 2
 WHERE user_id = 3 AND shift_id IN (8,9) AND event_date = '2020-10-27';`;
 
+const getEventsForReminder = () => {
+  // const queryString = `select NOW() AT TIME ZONE 'PDT'`;
+  const queryString = `
+  SELECT users.id, users.name as name, users.slack_username as slack_username, categories.name as event_name, event_date
+  FROM events
+  JOIN users ON users.id = events.user_id
+  JOIN categories ON categories.id = events.category_id
+  WHERE event_date
+  BETWEEN (select NOW() AT TIME ZONE 'PDT') AND (select NOW() AT TIME ZONE 'PDT' ) + interval '30 minutes';`;
+
+  return db.query(queryString).then((res) => {
+    return res.rows[0];
+  });
+};
 module.exports = {
   getShiftsByWeek,
   addShiftsByUser,
   publishWeek,
   grabShiftId,
   transferShift,
+  getEventsForReminder,
 };

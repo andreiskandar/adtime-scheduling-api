@@ -7,6 +7,9 @@ const bodyParser = require('body-parser');
 // const sass       = require("node-sass-middleware");
 const routes = require('./routes');
 const morgan = require('morgan');
+const { bot, sendReminderToUser } = require('./momentBot/bot');
+const schedule = require('node-schedule');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -16,6 +19,9 @@ app.use(morgan('dev'));
 for (const [mountPoint, router] of Object.entries(routes)) {
   app.use(mountPoint, router);
 }
+
+//setInterval(()=> runMyTask)
+bot.on('start', sendReminderToUser);
 
 const port = process.env.port || 3001;
 app.listen(port, () => {
