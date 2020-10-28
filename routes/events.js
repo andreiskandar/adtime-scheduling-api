@@ -10,15 +10,9 @@ const {
 
 // PUT to update and Transfer Shifts
 router.put('/transfer', async (req, res) => {
-  console.log('REQ BODY', req.body);
   try {
-    const { user_id, shift_id, category_id, event_date, transferToUserId } = req.body;
-    console.log('ROUTE  BE');
-    console.log('shift_id:', shift_id);
-    console.log('transferToUserId:', transferToUserId);
-    console.log('ROUTE  BE ==========');
-
-    const transfer = await transferShift(user_id, shift_id, transferToUserId, event_date, category_id);
+    const { user_id, shift_id, event_date, transferToUserId } = req.body;
+    const transfer = await transferShift(user_id, shift_id, transferToUserId, event_date);
     res.status(200).json(transfer);
   } catch (err) {
     console.error('Transfer of Shifts Error: ', err);
