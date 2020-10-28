@@ -15,6 +15,7 @@ const sendReminderToUser = () => {
     getEventsForReminder()
       .then((data) => {
         if (data) {
+          console.log('data:', data);
           const { name, slack_username, event_name, event_date } = data;
           const datetime = String(event_date).split(' ');
           const time = datetime[4].split(':');
@@ -22,11 +23,11 @@ const sendReminderToUser = () => {
           const appointment_time = `${time[0]}:${time[1]}`;
 
           const message = `${name}, you have an ${event_name} at ${appointment_time}`;
-          bot.postMessageToUser(slack_username, `${message}`, params);
+          bot.postMessageToUser('andre.m.iskandar', `${message}`, params);
         }
       })
       .catch((e) => console.log('error', e));
-  }, 60000);
+  }, 3000);
 };
 
 module.exports = { bot, sendReminderToUser };
