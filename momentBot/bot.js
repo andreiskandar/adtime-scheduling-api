@@ -7,6 +7,22 @@ const bot = new SlackBot({
 const params = {
   icon_emoji: 'robot',
 };
-const customMessage = `You will have an interview at this hours`;
 
-module.exports = { bot, params, customMessage };
+// setInterval everyminute to run query
+//milliseconds
+setInterval(() => {
+  // create query to check if there is any event happening within half hour
+  //run query
+  //if found start slackbot api then send message
+}, 60000);
+const appointment_time = '1pm';
+//get username = users.slack_bot_id
+const username = 'andre.m.iskandar';
+const
+
+const sendReminderToUser = () => {
+  const message = `You have an interview at ${appointment_time}`;
+  bot.postMessageToUser(username, `${message}`, params);
+};
+
+module.exports = { bot, sendReminderToUser };
