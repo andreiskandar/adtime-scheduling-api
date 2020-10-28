@@ -1,4 +1,10 @@
 const SlackBot = require('slackbots');
+const axios = require('axios');
+
+axios.get('/api/events/reminder').then((res) => {
+  console.log('respond from axios.get /reminder', res);
+});
+
 const bot = new SlackBot({
   token: process.env.SLACK_BOT_API_KEY,
   name: 'MomentBot',
@@ -18,10 +24,10 @@ setInterval(() => {
 const appointment_time = '1pm';
 //get username = users.slack_bot_id
 const username = 'andre.m.iskandar';
-const
+const event_name = 'interview';
 
 const sendReminderToUser = () => {
-  const message = `You have an interview at ${appointment_time}`;
+  const message = `You have an ${event_name} at ${appointment_time}`;
   bot.postMessageToUser(username, `${message}`, params);
 };
 

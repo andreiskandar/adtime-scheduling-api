@@ -64,10 +64,26 @@ const publishWeek = (publish, firstDay, lastDay) => {
 const updateShiftString = `UPDATE events SET user_id = 2
 WHERE user_id = 3 AND shift_id IN (8,9) AND event_date = '2020-10-27';`;
 
+const getEventsForReminder = () => {
+  // const queryString = `select NOW() AT TIME ZONE 'PDT'`;
+  const queryString = `
+  SELECT users.id, users.name, categories.name, event_date
+  FROM events
+  JOIN users ON users.id = events.user_id
+  JOIN categories ON categories.id = events.category_id
+  WHERE event_date
+  BETWEEN (select NOW() AT TIME ZONE 'PDT') AND (select NOW() AT TIME ZONE 'PDT' ) + interval '30 minutes';`;
+
+  return db.query(queryString).then((res) => {
+    console.log('res.rows', res.rows);
+    return res.rows;
+  });
+};
 module.exports = {
   getShiftsByWeek,
   addShiftsByUser,
   publishWeek,
   grabShiftId,
   transferShift,
+  getEventsForReminder,
 };

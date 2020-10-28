@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { publishWeek, grabShiftId, addShiftsByUser, transferShift } = require('../controllers/events');
+const {
+  publishWeek,
+  grabShiftId,
+  addShiftsByUser,
+  transferShift,
+  getEventsForReminder,
+} = require('../controllers/events');
 
 // PUT to update and Transfer Shifts
 router.put('/transfer', async (req, res) => {
@@ -44,6 +50,17 @@ router.delete('/delete', async (req, res) => {
     console.error('RemoveShiftIdRoute:', err);
     res.status(401).json({ msg: 'Invalid Shift IDs' });
   }
+});
+
+router.get('/reminder', (req, res) => {
+  getEventsForReminder()
+    .then((data) => {
+      res.send(data);
+      console.log('res from router.get /reminder', data);
+    })
+    .catch((e) => {
+      console.log('error from router.get /reminder', e);
+    });
 });
 
 module.exports = router.post('/', async (req, res) => {
