@@ -52,6 +52,7 @@ router.delete('/delete', async (req, res) => {
   }
 });
 
+// /api/events/reminder
 router.get('/reminder', (req, res) => {
   getEventsForReminder()
     .then((data) => {

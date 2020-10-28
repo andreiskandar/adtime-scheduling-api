@@ -15,7 +15,6 @@ const sendReminderToUser = () => {
     getEventsForReminder()
       .then((data) => {
         if (data) {
-          console.log('data:', data);
           const { name, slack_username, event_name, event_date } = data;
           const datetime = String(event_date).split(' ');
           const time = datetime[4].split(':');
