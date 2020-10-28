@@ -3,14 +3,14 @@ const transferShiftModel = require('../models/transfershift');
 const Model = require('../models/employee');
 const db = require('./db');
 
-async function transferShift(userId, shiftId, transferToId, event_date, category_id) {
-  console.log("CONTROLLER SECTION")
-  console.log('category_id:', category_id)
-  console.log('event_date:', event_date)
-  console.log('transferToId:', transferToId)
-  console.log('shiftId:', shiftId)
-  console.log('userId:', userId)
-  await transferShiftModel.transferShiftId(userId, shiftId, transferToId, event_date, category_id);
+async function transferShift(userId, shiftId, transferToUserId, event_date, category_id) {
+  console.log('CONTROLLER SECTION');
+  console.log('transferToUserId:', transferToUserId);
+  console.log('category_id:', category_id);
+  console.log('event_date:', event_date);
+  console.log('shiftId:', shiftId);
+  console.log('userId:', userId);
+  await transferShiftModel.transferShiftId(userId, shiftId, transferToUserId, event_date, category_id);
   return true;
 }
 
