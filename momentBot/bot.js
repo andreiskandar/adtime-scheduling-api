@@ -1,12 +1,5 @@
 const SlackBot = require('slackbots');
-const axios = require('axios');
-
-axios
-  .get('/api/events/reminder')
-  .then((res) => {
-    console.log('respond from axios.get /reminder', res);
-  })
-  .catch((e) => console.log('error from axios.get', e));
+const { getEventsForReminder } = require('../controllers/events');
 
 const bot = new SlackBot({
   token: process.env.SLACK_BOT_API_KEY,
@@ -17,21 +10,23 @@ const params = {
   icon_emoji: 'robot',
 };
 
-// setInterval everyminute to run query
-//milliseconds
-setInterval(() => {
-  // create query to check if there is any event happening within half hour
-  //run query
-  //if found start slackbot api then send message
-}, 60000);
-const appointment_time = '1pm';
-//get username = users.slack_bot_id
-const username = 'andre.m.iskandar';
-const event_name = 'interview';
-
 const sendReminderToUser = () => {
-  const message = `You have an ${event_name} at ${appointment_time}`;
-  bot.postMessageToUser(username, `${message}`, params);
+  setInterval(() => {
+    getEventsForReminder()
+      .then((data) => {
+        if (data) {
+          const { name, slack_username, event_name, event_date } = data;
+          const datetime = String(event_date).split(' ');
+          const time = datetime[4].split(':');
+          const date = `${datetime[0]}, ${datetime[1]} ${datetime[2]} ${datetime[3]}`;
+          const appointment_time = `${time[0]}:${time[1]}`;
+
+          const message = `${name}, you have an ${event_name} at ${appointment_time}`;
+          bot.postMessageToUser(slack_username, `${message}`, params);
+        }
+      })
+      .catch((e) => console.log('error', e));
+  }, 60000);
 };
 
 module.exports = { bot, sendReminderToUser };

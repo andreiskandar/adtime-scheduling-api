@@ -75,8 +75,7 @@ const getEventsForReminder = () => {
   BETWEEN (select NOW() AT TIME ZONE 'PDT') AND (select NOW() AT TIME ZONE 'PDT' ) + interval '30 minutes';`;
 
   return db.query(queryString).then((res) => {
-    console.log('res.rows', res.rows);
-    return res.rows;
+    return res.rows[0];
   });
 };
 module.exports = {
