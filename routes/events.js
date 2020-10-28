@@ -56,11 +56,8 @@ router.get('/reminder', (req, res) => {
   getEventsForReminder()
     .then((data) => {
       res.send(data);
-      console.log('res from router.get /reminder', data);
     })
-    .catch((e) => {
-      console.log('error from router.get /reminder', e);
-    });
+    .catch((e) => {});
 });
 
 module.exports = router.post('/', async (req, res) => {

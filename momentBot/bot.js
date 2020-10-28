@@ -1,9 +1,12 @@
 const SlackBot = require('slackbots');
 const axios = require('axios');
 
-axios.get('/api/events/reminder').then((res) => {
-  console.log('respond from axios.get /reminder', res);
-});
+axios
+  .get('/api/events/reminder')
+  .then((res) => {
+    console.log('respond from axios.get /reminder', res);
+  })
+  .catch((e) => console.log('error from axios.get', e));
 
 const bot = new SlackBot({
   token: process.env.SLACK_BOT_API_KEY,
