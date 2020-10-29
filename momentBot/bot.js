@@ -27,7 +27,7 @@ const sendReminderToUser = () => {
         }
       })
       .catch((e) => console.log('error', e));
-  }, 100000);
+  }, 60000);
 };
 
 module.exports = { bot, sendReminderToUser };

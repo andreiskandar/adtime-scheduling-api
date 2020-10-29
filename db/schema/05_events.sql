@@ -1,5 +1,6 @@
-DROP TABLE IF EXISTS user_shifts;
 DROP TABLE IF EXISTS events CASCADE;
+
+SET timezone = 'posix/Canada/Pacific';
 
 CREATE TABLE events (
   id SERIAL PRIMARY KEY NOT NULL,
