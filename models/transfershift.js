@@ -19,7 +19,6 @@ function transferShiftId(userId, shiftId, transferToUserId, event_date) {
     const queryString = `
     UPDATE events SET user_id=$3 
     WHERE user_id=$1 AND shift_id=$2 AND event_date='${event_date} ${parseInt(shift_id) + 8}:00:00';`;
-    console.log('queryString:', queryString);
     transferShift(queryString, shift_id, transferToUserId);
   }
 }

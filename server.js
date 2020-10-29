@@ -2,7 +2,8 @@
 require('dotenv').config();
 
 const ENV = process.env.ENV || 'development';
-process.env.TZ = 'UTC';
+process.env.TZ = 'PDT';
+// process.env.TZ = 'UTC';
 const express = require('express');
 const bodyParser = require('body-parser');
 // const sass       = require("node-sass-middleware");
