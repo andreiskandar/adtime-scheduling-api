@@ -21,7 +21,6 @@ for (const [mountPoint, router] of Object.entries(routes)) {
   app.use(mountPoint, router);
 }
 
-//setInterval(()=> runMyTask)
 bot.on('start', sendReminderToUser);
 
 const port = process.env.port || 3001;
