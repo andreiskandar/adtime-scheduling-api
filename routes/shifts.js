@@ -13,7 +13,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/events/', (req, res) => {
-  getShiftsByWeek()
+  const firstDay = req.query.firstDay
+  const lastDay = req.query.lastDay
+  console.log(firstDay, lastDay)
+  getShiftsByWeek(firstDay, lastDay)
     .then((data) => {
       res.send(data);
     })

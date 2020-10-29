@@ -14,7 +14,7 @@ async function grabShiftId(shiftId, eventDate, userId) {
 }
 
 //GET all shifts by user
-const getShiftsByWeek = () => {
+const getShiftsByWeek = (firstDay, lastDay) => {
   // should receive date range
   const queryString = `
           SELECT users.id as user_id, users.name as name, shifts.hours as hours, events.event_date, 
@@ -22,10 +22,15 @@ const getShiftsByWeek = () => {
           FROM events
           JOIN shifts ON events.shift_id = shifts.id
           JOIN users ON events.user_id = users.id
+          WHERE event_date >= $1 AND event_date <= $2
           ORDER BY event_date;`;
-  return db.query(queryString).then((response) => {
+  return db.query(queryString, [firstDay, lastDay]).then((response) => {
     return response.rows;
   });
+          
+  // return db.query(queryString).then((response) => {
+  //   return response.rows;
+  // });
 };
 
 //should accept 3 arguments: user_id, shift_id, category_id, date
