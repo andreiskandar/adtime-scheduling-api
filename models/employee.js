@@ -4,7 +4,7 @@ const db = require('../controllers/db');
 function removeShiftIds(shiftId, eventDate, userId) {
   const cancelShift = (queryString, shiftId) => {
     return db
-      .query(queryString, [shiftId, eventDate, userId])
+      .query(queryString, [shiftId, userId])
       .then(() => {
         return true;
       })
@@ -13,7 +13,10 @@ function removeShiftIds(shiftId, eventDate, userId) {
       });
   };
   for (const shift_id of shiftId) {
-    const queryString = `DELETE FROM events WHERE shift_id=$1 AND event_date=$2 AND user_id=$3`;
+    const queryString = `
+    DELETE FROM events 
+    WHERE shift_id=$1 AND event_date='${eventDate} ${parseInt(shift_id) + 8}:00:00' 
+    AND user_id=$2;`;
     cancelShift(queryString, shift_id);
   }
 }

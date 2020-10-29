@@ -31,17 +31,18 @@ const getShiftsByWeek = () => {
 //should accept 3 arguments: user_id, shift_id, category_id, date
 const addShiftsByUser = (user_id, shift_id, category_id, date) => {
   const addFunction = (queryString, shiftId) => {
-    return db.query(queryString, [user_id, shiftId, category_id, date]).then((response) => {
+    return db.query(queryString, [user_id, shiftId, category_id]).then((response) => {
       return response.rows;
     });
   };
-
   for (const shiftId of shift_id) {
-    let queryString = `
+    const queryString = `
     INSERT INTO events (user_id, shift_id, category_id, event_date) 
-    VALUES ($1::integer, $2::integer, $3::integer, $4::date);`;
+    VALUES ($1::integer, $2::integer, $3::integer, '${date}T${shiftId + 8}:00:00');`;
     addFunction(queryString, shiftId);
   }
+
+  //2020-10-28T00:00:00
 };
 
 const getUserById = (id) => {
@@ -71,7 +72,7 @@ const getEventsForReminder = () => {
   JOIN users ON users.id = events.user_id
   JOIN categories ON categories.id = events.category_id
   WHERE event_date
-  BETWEEN (select NOW() AT TIME ZONE 'PDT') AND (select NOW() AT TIME ZONE 'PDT' ) + interval '30 minutes';`;
+  BETWEEN (select NOW() AT TIME ZONE 'UTC') AND (select NOW() AT TIME ZONE 'UTC' ) + interval '30 minutes';`;
 
   return db.query(queryString).then((res) => {
     return res.rows[0];

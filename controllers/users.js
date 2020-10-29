@@ -1,4 +1,4 @@
-const userModel = require('../models/users')
+const userModel = require('../models/users');
 const Model = require('../models/employee');
 const db = require('./db');
 
@@ -16,18 +16,17 @@ const getAllUsers = () => {
   });
 };
 
-
 async function authenticate(email, password) {
-  const results = await userModel.getByEmail(email)
+  const results = await userModel.getByEmail(email);
   if (!results.length) {
-    throw new Error(`UserController: Cannot find email "${email}" in DB`)
+    throw new Error(`UserController: Cannot find email "${email}" in DB`);
   }
-  const dbUser = results.pop()
+  const dbUser = results.pop();
   // decrypt dbUserPassword, then compare the decrypted password
   if (password !== dbUser.password) {
-    throw new Error(`UserController: Given password "${password}" does not match dbUser password "${dbUser.password}"`)
+    throw new Error(`UserController: Given password "${password}" does not match dbUser password "${dbUser.password}"`);
   }
-  return dbUser
+  return dbUser;
 }
 
 module.exports = {
@@ -35,43 +34,3 @@ module.exports = {
   getAllUsers,
   authenticate,
 };
-
-// function list() {
-//   // this needs to be massaged result of pg.query
-//   //const user = db.query('SELECT * FROM users')
-//   const results = [
-//     {
-//       id: 1,
-//       firstName: 'Jane',
-//       lastName: 'Doe',
-//     },
-//     {
-//       id: 2,
-//       firstName: 'Alice',
-//       lastName: 'Doe',
-//     },
-//   ]
-//   const employees = []
-//   for (const result of results) {
-//     employees.push(new Employee({
-//       id,
-//       firstName,
-//       lastName,
-//     }))
-//   }
-//   return employees
-// }
-
-// function update(id, options) {
-//   // return all employees
-// }
-
-// function remove(id) {
-//  // delete employee by id
-// }
-
-// // model specific ops
-
-// function changeShift(id) {
-//  // change the shift for an employee
-// }

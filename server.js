@@ -2,7 +2,8 @@
 require('dotenv').config();
 
 const ENV = process.env.ENV || 'development';
-process.env.TZ = 'UTC';
+process.env.TZ = 'PDT';
+// process.env.TZ = 'UTC';
 const express = require('express');
 const bodyParser = require('body-parser');
 // const sass       = require("node-sass-middleware");
@@ -21,7 +22,6 @@ for (const [mountPoint, router] of Object.entries(routes)) {
   app.use(mountPoint, router);
 }
 
-//setInterval(()=> runMyTask)
 bot.on('start', sendReminderToUser);
 
 const port = process.env.port || 3001;
