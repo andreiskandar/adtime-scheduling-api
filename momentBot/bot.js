@@ -31,7 +31,6 @@ const sendReminderToUser = () => {
       .then((data) => {
         data && processDataToPost(data);
       })
-      .then(() => bot.postMessageToUser('andre.m.iskandar', `===================`, params))
       .catch((e) => console.log('error', e));
   }, minute * 60000);
 };
