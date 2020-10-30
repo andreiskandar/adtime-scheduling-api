@@ -2,6 +2,7 @@ const { response } = require('express');
 const db = require('../controllers/db');
 
 function removeShiftIds(shiftId, eventDate, userId) {
+  console.log('shiftId:', shiftId);
   const cancelShift = (queryString, shiftId) => {
     return db
       .query(queryString, [shiftId, userId])

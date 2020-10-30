@@ -82,17 +82,17 @@ const updateShiftString = `UPDATE events SET user_id = 2
 WHERE user_id = 3 AND shift_id IN (8,9) AND event_date = '2020-10-27';`;
 
 const getEventsForReminder = () => {
-  // const queryString = `select NOW() AT TIME ZONE 'PDT'`;
   const queryString = `
   SELECT users.id, users.name as name, users.slack_username as slack_username, categories.name as event_name, event_date
   FROM events
   JOIN users ON users.id = events.user_id
   JOIN categories ON categories.id = events.category_id
   WHERE event_date
-  BETWEEN (select NOW() AT TIME ZONE 'UTC') AND (select NOW() AT TIME ZONE 'UTC' ) + interval '30 minutes';`;
+  BETWEEN (select NOW() AT TIME ZONE 'PDT') AND (select NOW() AT TIME ZONE 'PDT' ) + interval '60 minutes';`;
+  // AND events.category_id IN (2,3,4)`;
 
   return db.query(queryString).then((res) => {
-    return res.rows[0];
+    return res.rows;
   });
 };
 module.exports = {
