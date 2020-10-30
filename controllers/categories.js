@@ -70,7 +70,6 @@ const updateAvailability = (user_id, startTime, endTime) => {
           const queryString = `
           INSERT INTO events (user_id, shift_id, category_id, event_date)
           VALUES ($1::integer, $2::integer, 5, '${date}T${shiftId + 8}:00:00');`;
-          console.log('queryString:', queryString);
           addFunction(queryString, shiftId);
         }
       });
