@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllUsers, getUserById } = require('../controllers/users');
+const { getAllUsers, getUserByName } = require('../controllers/users');
 
 //GET /users
 router.get('/', (req, res) => {
@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
 
 //GET /api/users/:id
 router.get('/:id', (req, res) => {
-  getUserById(req.params.id).then((user) => {
-    res.json({ user });
+  getUserByName(req.params.id).then((data) => {
+    res.send(data);
   });
 });
 

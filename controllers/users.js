@@ -2,10 +2,11 @@ const userModel = require('../models/users');
 const Model = require('../models/employee');
 const db = require('./db');
 
-//GET user by ID
-const getUserById = (id) => {
-  return db.query('SELECT * FROM users WHERE id = $1', [id]).then((response) => {
-    return response.rows[0];
+//GET user by name
+const getUserByName = (name) => {
+  return db.query(`SELECT * FROM users WHERE name LIKE '${name}%';`).then((response) => {
+    console.log(response.rows)
+    return response.rows;
   });
 };
 
@@ -30,7 +31,7 @@ async function authenticate(email, password) {
 }
 
 module.exports = {
-  getUserById,
+  getUserByName,
   getAllUsers,
   authenticate,
 };
