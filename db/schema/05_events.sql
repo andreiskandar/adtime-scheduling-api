@@ -6,7 +6,8 @@ CREATE TABLE events (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   shift_id INTEGER REFERENCES shifts(id) ON DELETE CASCADE,
   category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
-  event_date DATE not null default CURRENT_DATE,
+  event_date TIMESTAMP not null default CURRENT_DATE,
+  -- utc_time TIMESTAMPTZ,
   isPublished BOOLEAN DEFAULT FALSE,
   UNIQUE (user_id, shift_id, event_date)
 );
