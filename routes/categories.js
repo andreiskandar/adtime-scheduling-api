@@ -15,6 +15,8 @@ router.get('/', (req, res) => {
 router.get('/updateAvailability/:user_id', (req, res) => {
   const { startTimeState, endTimeState } = req.query;
   const { user_id } = req.params;
-  updateAvailability(user_id, startTimeState, endTimeState).then().catch();
+  updateAvailability(user_id, startTimeState, endTimeState)
+    .then()
+    .catch((e) => console.log('updateAvailability', e));
 });
 module.exports = router;

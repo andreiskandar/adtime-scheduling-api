@@ -6,7 +6,27 @@ const getCategories = () => {
   });
 };
 
-const getDates = () => {};
+const MOMENT_DICT = {
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
+  Sunday: 0,
+};
+const getDatesArray = (numOfWeeks, day) => {
+  //whichDay (0 - sunday, 1 - monday, .....)
+  const dates = [];
+  for (let i = 1; i <= numOfWeeks; i++) {
+    const date = moment()
+      .isoWeekday(MOMENT_DICT[day] + i * 7)
+      .format(moment.HTML5_FMT.DATE);
+    dates.push(date);
+  }
+
+  return dates;
+};
 
 const getUnavailableShiftIdsArray = (start_time, end_time) => {
   const shift_id = [];
@@ -32,66 +52,52 @@ const updateAvailability = (user_id, startTime, endTime) => {
   const parseEndTime = JSON.parse(endTime);
 
   const unavailableShiftIds = Object.keys(parseStartTime).reduce((acc, cur, idx) => {
-    acc[cur] = getUnavailableShiftIdsArray(parseStartTime[cur], parseEndTime[cur]);
+    const idsArray = getUnavailableShiftIdsArray(parseStartTime[cur], parseEndTime[cur]);
+    acc[cur] = idsArray.length === 12 ? [] : idsArray;
     return acc;
   }, {});
-  console.log('unavailableShiftIds:', unavailableShiftIds);
 
-  console.log('MONDAY');
-  console.log('getDates: ', moment().day(1));
-  console.log('getDates: ', moment().day(8));
-  console.log('getDates: ', moment().day(15));
-  console.log('getDates: ', moment().day(22));
-  console.log('getDates: ', moment().day(29));
-  console.log('====================');
-  // console.log('TUESDAY');
-  // console.log('getDates: ', moment().day(2));
-  // console.log('getDates: ', moment().day(9));
-  // console.log('getDates: ', moment().day(16));
-  // console.log('getDates: ', moment().day(23));
-  // console.log('getDates: ', moment().day(30));
-  // console.log('====================');
-  // console.log('WEDNESDAY');
-  // console.log('getDates: ', moment().day(3));
-  // console.log('getDates: ', moment().day(10));
-  // console.log('getDates: ', moment().day(17));
-  // console.log('getDates: ', moment().day(24));
-  // console.log('getDates: ', moment().day(31));
-  // console.log('====================');
-  // console.log('THURSDAY');
-  // console.log('getDates: ', moment().day(4));
-  // console.log('getDates: ', moment().day(11));
-  // console.log('getDates: ', moment().day(18));
-  // console.log('getDates: ', moment().day(25));
-  // console.log('getDates: ', moment().day(32));
-  // console.log('====================');
-  // console.log('FRIDAY');
-  // console.log('getDates: ', moment().day(5));
-  // console.log('getDates: ', moment().day(12));
-  // console.log('getDates: ', moment().day(19));
-  // console.log('getDates: ', moment().day(26));
-  // console.log('getDates: ', moment().day(33));
-  // console.log('====================');
-  // console.log('SATURDAY');
-  // console.log('getDates: ', moment().day(6));
-  // console.log('getDates: ', moment().day(13));
-  // console.log('getDates: ', moment().day(20));
-  // console.log('getDates: ', moment().day(27));
-  // console.log('getDates: ', moment().day(34));
-  // console.log('====================');
-  // console.log('SUNDAY');
-  // console.log('getDates: ', moment().day(7));
-  // console.log('getDates: ', moment().day(14));
-  // console.log('getDates: ', moment().day(21));
-  // console.log('getDates: ', moment().day(28));
-  // console.log('getDates: ', moment().day(35));
-  // console.log('parseStartTime:', parseStartTime);
-  // console.log('parseEndTime:', parseEndTime);
-  // console.log('user_id:', user_id);
+  for (const day in unavailableShiftIds) {
+    if (unavailableShiftIds[day].length !== 0) {
+      const dates = getDatesArray(4, day);
+      const updateAvailabilityQuery = dates.map((date) => {
+        const addFunction = (queryString, shiftId) => {
+          return db.query(queryString, [user_id, shiftId]).then((response) => {
+            return response.rows;
+          });
+        };
+        for (const shiftId of unavailableShiftIds[day]) {
+          const queryString = `
+          INSERT INTO events (user_id, shift_id, category_id, event_date)
+          VALUES ($1::integer, $2::integer, 5, '${date}T${shiftId + 8}:00:00');`;
+          console.log('queryString:', queryString);
+          addFunction(queryString, shiftId);
+        }
+      });
+    }
+  }
+
+  // Monday work from 12:00 - 17:00
+  // Tuesday work from 09:00 - 12:00
+  // Wednesday work from 10:00 - 18:00
+  // Thursday - Sunday available to work anytime
+
+  // unavailableShiftIds =
+  // {
+  // Monday: [ 1, 2, 3, 9, 10, 11, 12 ],
+  // Tuesday: [ 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+  // Wednesday: [ 1, 10, 11, 12 ],
+  // Thursday: [],
+  // Friday: [],
+  // Saturday: [],
+  // Sunday: []
+  // }
+
+  //getDates(4 weeks, monday) : [ '2020-11-02', '2020-11-09', '2020-11-16', '2020-11-23' ]
 
   //all the days and start time and end time
   //structure startTime or EndTime
-  // get shift_ids that are not available
+  // get shift_ids that are not available based on user input
   // create a function to find the first monday, or tuesday
   // find the next mondays, tuesdays...
   // insert statement to database
