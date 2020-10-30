@@ -19,7 +19,7 @@ function processDataToPost(events) {
     const appointment_time = `${time[0]}:${time[1]}`;
     const message = `${idx} - ${name}, you have an ${event_name} at ${appointment_time}`;
     // bot.postMessageToUser('slack_username', `${message}`, params);
-    return bot.postMessageToUser('andre.m.iskandar', `${message}`, params).then(() => true);
+    return bot.postMessageToUser('thai.hl.do', `${message}`, params).then(() => true);
   });
 }
 
