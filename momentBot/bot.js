@@ -10,9 +10,9 @@ const params = {
   icon_emoji: 'robot',
 };
 
-function processDataToPost(apiData) {
-  return apiData.map((data, idx) => {
-    const { name, slack_username, event_name, event_date } = data;
+function processDataToPost(events) {
+  return events.map((event, idx) => {
+    const { name, slack_username, event_name, event_date } = event;
     const datetime = String(event_date).split(' ');
     const time = datetime[4].split(':');
     const date = `${datetime[0]}, ${datetime[1]} ${datetime[2]} ${datetime[3]}`;
@@ -23,7 +23,7 @@ function processDataToPost(apiData) {
   });
 }
 
-const minute = 7 / 60;
+const minute = 10 / 60;
 
 const sendReminderToUser = () => {
   setInterval(() => {
