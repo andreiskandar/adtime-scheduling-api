@@ -3,6 +3,25 @@ const transferShiftModel = require('../models/transfershift');
 const Model = require('../models/employee');
 const db = require('./db');
 
+
+const copyShifts = (firstDay, lastDay) => {
+  // should receive date range
+  const queryString = `
+          SELECT users.id as user_id, users.name as name, shifts.hours as hours, 
+          shifts.id as shift_id, events.category_id as category_id
+          FROM events
+          JOIN shifts ON events.shift_id = shifts.id
+          JOIN users ON events.user_id = users.id
+          WHERE event_date >= $1 AND event_date <= $2
+          ORDER BY event_date;`;
+  return db.query(queryString, [firstDay, lastDay]).then((response) => {
+    return response.rows;
+  });
+};
+
+
+
+
 async function transferShift(userId, shiftId, transferToUserId, event_date) {
   await transferShiftModel.transferShiftId(userId, shiftId, transferToUserId, event_date);
   return true;
@@ -103,4 +122,5 @@ module.exports = {
   grabShiftId,
   transferShift,
   getEventsForReminder,
+  copyShifts,
 };

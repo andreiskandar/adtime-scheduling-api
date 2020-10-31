@@ -1,7 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const { getAllShifts } = require('../controllers/shifts');
-const { getShiftsByWeekManager, getShiftsByWeekEmployee } = require('../controllers/events');
+const { getShiftsByWeekManager, getShiftsByWeekEmployee, copyShifts } = require('../controllers/events');
+
+// Get route to grab all shiftsIds, userIds, categoryIds
+router.get('/copy', (req, res) => {
+  console.log("REQ BODY COPY", req.query)
+  const firstDay = req.query.firstDay
+  const lastDay = req.query.lastDay
+  copyShifts(firstDay, lastDay)
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch((e) => console.log('Copy Shifts Error: ', e));
+});
 
 //GET /users
 router.get('/', (req, res) => {
