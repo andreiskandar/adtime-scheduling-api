@@ -12,11 +12,14 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/updateAvailability/:user_id', (req, res) => {
-  const { startTimeState, endTimeState } = req.query;
+router.put('/updateAvailability/:user_id', (req, res) => {
+  const { startTimeState, endTimeState } = req.body;
   const { user_id } = req.params;
-  updateAvailability(user_id, startTimeState, endTimeState)
-    .then((data) => res.status(200).send(data))
-    .catch((e) => console.log('updateAvailability', e));
+  updateAvailability(user_id, startTimeState, endTimeState);
+  // .then((data) => {
+  //   console.log('completed');
+  //   res.status(200);
+  // })
+  // .catch((e) => console.log('router.post update availability: ', e));
 });
 module.exports = router;
