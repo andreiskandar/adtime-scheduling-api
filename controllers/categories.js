@@ -14,6 +14,8 @@ const updateAvailability = (user_id, startTime, endTime) => {
     return acc;
   }, {});
 
+  const addPromises = [];
+
   // Object.keys(unavailableShiftIds).map((day) =>
   for (const day in unavailableShiftIds) {
     if (unavailableShiftIds[day].length !== 0) {
@@ -31,11 +33,13 @@ const updateAvailability = (user_id, startTime, endTime) => {
           const queryString = `
           INSERT INTO events (user_id, shift_id, category_id, event_date)
           VALUES ($1::integer, $2::integer, 5, '${date}T${shiftId + 8}:00:00');`;
-          addFunction(queryString, shiftId);
+          addPromises.push(addFunction(queryString, shiftId));
         }
       });
     }
   }
+
+  return Promise.all(addPromises);
 };
 
 // Monday work from 12:00 - 17:00

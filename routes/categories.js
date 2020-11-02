@@ -15,11 +15,11 @@ router.get('/', (req, res) => {
 router.put('/updateAvailability/:user_id', (req, res) => {
   const { startTimeState, endTimeState } = req.body;
   const { user_id } = req.params;
-  updateAvailability(user_id, startTimeState, endTimeState);
-  // .then((data) => {
-  //   console.log('completed');
-  //   res.status(200);
-  // })
-  // .catch((e) => console.log('router.post update availability: ', e));
+  updateAvailability(user_id, startTimeState, endTimeState)
+    .then(() => {
+      console.log('update availability completed');
+      res.status(200);
+    })
+    .catch((e) => console.log('router.post update availability: ', e));
 });
 module.exports = router;

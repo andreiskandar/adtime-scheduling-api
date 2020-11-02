@@ -3,7 +3,6 @@ const transferShiftModel = require('../models/transfershift');
 const Model = require('../models/employee');
 const db = require('./db');
 
-
 const copyShifts = (firstDay, lastDay) => {
   // should receive date range
   const queryString = `
@@ -19,9 +18,6 @@ const copyShifts = (firstDay, lastDay) => {
   });
 };
 
-
-
-
 async function transferShift(userId, shiftId, transferToUserId, event_date) {
   await transferShiftModel.transferShiftId(userId, shiftId, transferToUserId, event_date);
   return true;
@@ -34,6 +30,8 @@ async function grabShiftId(shiftId, eventDate, userId) {
 
 //GET all shifts for Manager
 const getShiftsByWeekManager = (firstDay, lastDay) => {
+  console.log('lastDay:', lastDay);
+  console.log('firstDay:', firstDay);
   // should receive date range
   const queryString = `
           SELECT users.id as user_id, users.name as name, shifts.hours as hours, events.event_date, 
