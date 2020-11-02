@@ -41,6 +41,7 @@ const getShiftsByWeekManager = (firstDay, lastDay) => {
           JOIN users ON events.user_id = users.id
           WHERE event_date >= $1 AND event_date <= $2
           ORDER BY event_date;`;
+
   return db.query(queryString, [firstDay, lastDay]).then((response) => {
     return response.rows;
   });
