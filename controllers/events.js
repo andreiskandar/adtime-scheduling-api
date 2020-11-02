@@ -65,6 +65,7 @@ const getShiftsByWeekEmployee = (firstDay, lastDay) => {
 
 //should accept 3 arguments: user_id, shift_id, category_id, date
 const addShiftsByUser = (user_id, shift_id, category_id, date) => {
+  console.log('shift_id:', shift_id);
   const addFunction = (queryString, shiftId) => {
     return db.query(queryString, [user_id, shiftId, category_id]).then((response) => {
       return response.rows;
