@@ -8,5 +8,6 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   avatar VARCHAR(255),
   slack_username VARCHAR(255),
-  color VARCHAR(10)
+  color VARCHAR(10),
+  phone_number VARCHAR(20)
 );
