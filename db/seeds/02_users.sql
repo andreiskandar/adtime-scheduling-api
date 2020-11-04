@@ -1,12 +1,12 @@
 -- Users table seeds here (Example)
-INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color, phone_number) 
-VALUES ('Alice Simon', 1, 'alice@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/21.jpg', null, '#b39ddb', '7789970696');
+INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
+VALUES ('Alice Simon', 1, 'alice@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/21.jpg', null, '#b39ddb');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Kira Lorraine', 2, 'kira@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/35.jpg', null, '#f48fb1');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Jack Monroe', 2, 'Jack@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/men/23.jpg', null, '#80cbc4');
-INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
-VALUES ('Lisa Terry', 2, 'Lisa@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/33.jpg', null, '#ffcc80');
+INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color,phone_number) 
+VALUES ('Lisa Terry', 2, 'Lisa@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/33.jpg', null, '#ffcc80', '7789970696');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Lex Luthor', 2, 'Lacazette@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/men/58.jpg', null, '#a1887f');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
