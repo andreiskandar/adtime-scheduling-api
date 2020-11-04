@@ -10,10 +10,6 @@ function processDataToPost(events) {
   Promise.all(
     events.map((event) => {
       const { phone_number, name, event_date, username } = event;
-      console.log('username:', username)
-      console.log('event_date:', event_date)
-      console.log('name:', name)
-      console.log('phone_number:', phone_number)
       const datetime = String(event_date).split(' ');
       const time = datetime[4].split(':');
       const date = `${datetime[0]}, ${datetime[1]} ${datetime[2]} ${datetime[3]}`;
