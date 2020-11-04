@@ -745,9 +745,9 @@ INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (10, 7, 1
 
 
 -- ADT
-INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (11, 6, 1, '2020-11-02T14:00:00');
-INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (12, 5, 1, '2020-11-02T13:00:00');
-INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (12, 7, 1, '2020-11-02T15:00:00');
+-- INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (11, 6, 1, '2020-11-02T14:00:00');
+-- INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (12, 5, 1, '2020-11-02T13:00:00');
+-- INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (12, 7, 1, '2020-11-02T15:00:00');
 
 -- INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (13, 4, 1, '2020-11-02T12:00:00');
 -- INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (13, 8, 1, '2020-11-02T16:00:00');
