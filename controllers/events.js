@@ -118,7 +118,7 @@ const getEventsForReminder = () => {
 const getTwilioReminder = () => {
   const queryString = `
   SELECT users.id, users.name as username, categories.name, event_date, users.phone_number,
-  categories.id as category_id,
+  categories.id as category_id
   FROM events
   JOIN users ON users.id = events.user_id
   JOIN categories ON categories.id = events.category_id
