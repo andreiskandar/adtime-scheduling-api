@@ -114,6 +114,22 @@ const getEventsForReminder = () => {
     return res.rows;
   });
 };
+
+const getTwilioReminder = () => {
+  const queryString  = `
+  SELECT users.id, users.name as username, categories.name, event_date, users.phone_number
+  FROM events
+  JOIN users ON users.id = events.user_id
+  JOIN categories ON categories.id = events.category_id
+  WHERE event_date
+  BETWEEN (SELECT NOW() AT TIME ZONE 'PDT') AND (SELECT NOW() at TIME ZONE 'PDT') + interval '60 minutes';`;
+
+  return db.query(queryString)
+    .then((res) => {
+    return res.rows;
+  });
+};
+
 module.exports = {
   getShiftsByWeekManager,
   getShiftsByWeekEmployee,
@@ -123,4 +139,5 @@ module.exports = {
   transferShift,
   getEventsForReminder,
   copyShifts,
+  getTwilioReminder,
 };
