@@ -11,8 +11,8 @@ INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, 
 VALUES ('Lex Luthor', 2, 'Lacazette@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/men/58.jpg', null, '#a1887f');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color, phone_number) 
 VALUES ('Bonnie Yuro', 2, 'bonnie@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/41.jpg', null, '#81c784', '7788956373');
-INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
-VALUES ('Pierre Cristine', 2, 'Pierre@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/31.jpg', 'andre.m.iskandar', '#29b6f6');
+INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color, phone_number) 
+VALUES ('Pierre Cristine', 2, 'Pierre@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/31.jpg', 'andre.m.iskandar', '#29b6f6', '4033836567');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Marylynne Lilley', 2, 'marylyneeL@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/50.jpg', null, '#b39ddb');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
