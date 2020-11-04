@@ -2,15 +2,15 @@
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color, phone_number) 
 VALUES ('Alice Simon', 1, 'alice@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/21.jpg', null, '#b39ddb', '7789970696');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color, phone_number) 
-VALUES ('Kira Lorraine', 2, 'kira@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/35.jpg', null, '#f48fb1', '7789970696');
+VALUES ('Kira Lorraine', 2, 'kira@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/35.jpg', null, '#f48fb1', '7788956373');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Jack Monroe', 2, 'Jack@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/men/23.jpg', null, '#80cbc4');
-INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color,phone_number) 
-VALUES ('Lisa Terry', 2, 'Lisa@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/33.jpg', null, '#ffcc80', '7789970696');
+INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color, phone_number) 
+VALUES ('Lisa Terry', 2, 'Lisa@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/33.jpg', null, '#ffcc80', '4033836567');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Lex Luthor', 2, 'Lacazette@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/men/58.jpg', null, '#a1887f');
-INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
-VALUES ('Bonnie Yuro', 2, 'bonnie@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/41.jpg', null, '#81c784');
+INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color, phone_number) 
+VALUES ('Bonnie Yuro', 2, 'bonnie@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/41.jpg', null, '#81c784', '7788956373');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Pierre Cristine', 2, 'Pierre@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/31.jpg', 'andre.m.iskandar', '#29b6f6');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 

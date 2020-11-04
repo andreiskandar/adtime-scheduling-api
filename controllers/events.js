@@ -141,3 +141,10 @@ module.exports = {
   copyShifts,
   getTwilioReminder,
 };
+
+      // const { phone_number, name, event_date, username } = event;
+      // const datetime = String(event_date).split(' ');
+      // const time = datetime[4].split(':');
+      // const date = `${datetime[0]}, ${datetime[1]} ${datetime[2]} ${datetime[3]}`;
+      // const appointment_time = `${time[0]}:${time[1]}`;
+      // const message = `${username}, you have an ${name} at ${appointment_time}`;
