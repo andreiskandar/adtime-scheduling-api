@@ -9,7 +9,6 @@ const bodyParser = require('body-parser');
 const routes = require('./routes');
 const morgan = require('morgan');
 const { bot, sendReminderToUser } = require('./momentBot/bot');
-const schedule = require('node-schedule');
 
 const app = express();
 
