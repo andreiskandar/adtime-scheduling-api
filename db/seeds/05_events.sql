@@ -76,6 +76,7 @@ INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (7, 8, 2,
 INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (1, 1, 1, '2020-11-02T09:00:00');
 INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (1, 2, 1, '2020-11-02T10:00:00');
 INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (1, 3, 1, '2020-11-02T11:00:00');
+INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (1, 4, 1, '2020-11-02T12:00:00');
 
 INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (1, 1, 5, '2020-11-03T09:00:00');
 INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (1, 2, 5, '2020-11-03T10:00:00');
