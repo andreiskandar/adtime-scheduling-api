@@ -102,13 +102,13 @@ WHERE user_id = 3 AND shift_id IN (8,9) AND event_date = '2020-10-27';`;
 
 const getEventsForReminder = () => {
   const queryString = `
-  SELECT users.id, users.name as name, users.slack_username as slack_username, categories.name as event_name, event_date
+  SELECT users.id, users.name as name, users.slack_username as slack_username, 
+  categories.id as category_id,  categories.name as event_name, event_date
   FROM events
   JOIN users ON users.id = events.user_id
   JOIN categories ON categories.id = events.category_id
-  WHERE event_date
-  BETWEEN (select NOW() AT TIME ZONE 'PDT') AND (select NOW() AT TIME ZONE 'PDT' ) + interval '60 minutes';`;
-  // AND events.category_id IN (2,3,4)`;
+  WHERE category_id IN (2,3,4) AND
+  event_date BETWEEN (select NOW() AT TIME ZONE 'PST') AND (select NOW() AT TIME ZONE 'PST' ) + interval '60 minutes';`;
 
   return db.query(queryString).then((res) => {
     return res.rows;
