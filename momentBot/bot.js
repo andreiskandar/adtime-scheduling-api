@@ -7,7 +7,7 @@ const bot = new SlackBot({
 });
 
 const params = {
-  icon_emoji: 'robot',
+  icon_emoji: 'cat',
 };
 
 function processDataToPost(events) {
@@ -24,9 +24,11 @@ function processDataToPost(events) {
 }
 
 //enter number of seconds [..] / 60
-const minute = 180 / 60;
+const minute = 3 / 60;
 
 const sendReminderToUser = () => {
+  bot.postMessageToChannel('general', 'mmore testing hereow!', params);
+
   setInterval(() => {
     getEventsForReminder()
       .then((data) => {
