@@ -7,21 +7,20 @@ const { getTwilioReminder } = require('../controllers/events');;
 
 function processDataToPost(events) {
   console.log('events:', events)
-  Promise.all(
-    events.map((event) => {
+  // Promise.all(
+    return events.map((event) => {
       const { phone_number, name, event_date, username } = event;
       const datetime = String(event_date).split(' ');
       const time = datetime[4].split(':');
       const date = `${datetime[0]}, ${datetime[1]} ${datetime[2]} ${datetime[3]}`;
       const appointment_time = `${time[0]}:${time[1]}`;
       const message = `${username}, you have an ${name} at ${appointment_time}`;      
-      let test = client.messages.create({
+      return client.messages.create({
         body: message,
-        from: `+${authPhone}`,
+        from: `${authPhone}`,
         to: phone_number
       })
-      return test;
-    }))
+    })//)
       .then((msg) => {
         console.log(msg.sid)
       })
@@ -31,7 +30,7 @@ function processDataToPost(events) {
 }
 
 
-const minute = 10 / 60;
+const minute = 240 / 60;
 
 const sendReminderToEmp = () => {
   setInterval(() => {
