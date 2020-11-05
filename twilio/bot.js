@@ -3,7 +3,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const authPhone = process.env.TWILIO_PHONE_NUMBER;
 const twilio = require('twilio');
 const client = new twilio(accountSid, authToken);
-const { getTwilioReminder } = require('../controllers/events');;
+const { getTwilioReminder } = require('../controllers/events');
 
 function processDataToPost(events) {
   console.log('events:', events)
@@ -29,7 +29,10 @@ function processDataToPost(events) {
       })
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1c867416b5bd8bb70a5d624911df5593fc1cc1cd
 const minute = 240 / 60;
 
 const sendReminderToEmp = () => {
@@ -38,10 +41,10 @@ const sendReminderToEmp = () => {
       .then((data) => {
         data && processDataToPost(data);
       })
-      .catch((e) => console.log('error', e));
+      .catch((e) => console.log('error from twilio', e));
   }, minute * 60000);
 };
 
 module.exports = {
   sendReminderToEmp,
-}
+};
