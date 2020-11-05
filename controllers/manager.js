@@ -1,8 +1,8 @@
-const Model = require('../models/manager')
+const Model = require('../models/manager');
 
 module.exports = {
   get,
-}
+};
 
 // basic crud ops
 
@@ -12,7 +12,7 @@ function get(id) {
     id: 1,
     firstName: 'Bob',
     lastName: 'Doe',
-  })
+  });
 }
 
 function list() {
@@ -28,28 +28,16 @@ function list() {
       firstName: 'John',
       lastName: 'Doe',
     },
-  ]
-  const managers = []
+  ];
+  const managers = [];
   for (const result of results) {
-    managers.push(new Manager({
-      id,
-      firstName,
-      lastName,
-    }))
+    managers.push(
+      new Manager({
+        id,
+        firstName,
+        lastName,
+      })
+    );
   }
-  return managers
-}
-
-function update(id, options) {
-  // return all employees
-}
-
-function remove(id) {
- // delete employee by id
-}
-
-// model specific ops 
-
-function changeShift(id) {
- // change the shift for an employee
+  return managers;
 }
