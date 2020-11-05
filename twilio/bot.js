@@ -29,10 +29,6 @@ function processDataToPost(events) {
       })
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 1c867416b5bd8bb70a5d624911df5593fc1cc1cd
 const minute = 240 / 60;
 
 const sendReminderToEmp = () => {
