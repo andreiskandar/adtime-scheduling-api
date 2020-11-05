@@ -5,7 +5,7 @@ const db = require('./db');
 //GET user by name
 const getUserByName = (name) => {
   return db.query(`SELECT * FROM users WHERE name LIKE '${name}%';`).then((response) => {
-    console.log(response.rows)
+    console.log(response.rows);
     return response.rows;
   });
 };

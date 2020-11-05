@@ -16,7 +16,6 @@ const updateAvailability = (user_id, startTime, endTime) => {
 
   const addPromises = [];
 
-  // Object.keys(unavailableShiftIds).map((day) =>
   for (const day in unavailableShiftIds) {
     if (unavailableShiftIds[day].length !== 0) {
       const dates = getDatesArray(4, day);
@@ -41,31 +40,4 @@ const updateAvailability = (user_id, startTime, endTime) => {
 
   return Promise.all(addPromises);
 };
-
-// Monday work from 12:00 - 17:00
-// Tuesday work from 09:00 - 12:00
-// Wednesday work from 10:00 - 18:00
-// Thursday - Sunday available to work anytime
-
-// unavailableShiftIds =
-// {
-// Monday: [ 1, 2, 3, 9, 10, 11, 12 ],
-// Tuesday: [ 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
-// Wednesday: [ 1, 10, 11, 12 ],
-// Thursday: [],
-// Friday: [],
-// Saturday: [],
-// Sunday: []
-// }
-
-//getDates(4 weeks, monday) : [ '2020-11-02', '2020-11-09', '2020-11-16', '2020-11-23' ]
-
-//all the days and start time and end time
-//structure startTime or EndTime
-// get shift_ids that are not available based on user input
-// create a function to find the first monday, or tuesday
-// find the next mondays, tuesdays...
-// insert statement to database
-//
-
 module.exports = { getCategories, updateAvailability };

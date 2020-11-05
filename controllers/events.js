@@ -4,7 +4,6 @@ const Model = require('../models/employee');
 const db = require('./db');
 
 const copyShifts = (firstDay, lastDay) => {
-  // should receive date range
   const queryString = `
           SELECT users.id as user_id, users.name as name, shifts.hours as hours, 
           shifts.id as shift_id, events.category_id as category_id
@@ -30,8 +29,6 @@ async function grabShiftId(shiftId, eventDate, userId) {
 
 //GET all shifts for Manager
 const getShiftsByWeekManager = (firstDay, lastDay) => {
-  console.log('lastDay:', lastDay);
-  console.log('firstDay:', firstDay);
   // should receive date range
   const queryString = `
           SELECT users.id as user_id, users.name as name, shifts.hours as hours, events.event_date, 
@@ -47,9 +44,7 @@ const getShiftsByWeekManager = (firstDay, lastDay) => {
   });
 };
 
-//GET all shifts for Employee (i.e Published Status === true)
 const getShiftsByWeekEmployee = (firstDay, lastDay) => {
-  // should receive date range
   const queryString = `
           SELECT users.id as user_id, users.name as name, shifts.hours as hours, events.event_date, 
           shifts.id as shift_id, events.category_id as category_id, events.isPublished as isPublished
@@ -63,9 +58,7 @@ const getShiftsByWeekEmployee = (firstDay, lastDay) => {
   });
 };
 
-//should accept 3 arguments: user_id, shift_id, category_id, date
 const addShiftsByUser = (user_id, shift_id, category_id, date) => {
-  console.log('shift_id:', shift_id);
   const addFunction = (queryString, shiftId) => {
     return db.query(queryString, [user_id, shiftId, category_id]).then((response) => {
       return response.rows;
@@ -77,8 +70,6 @@ const addShiftsByUser = (user_id, shift_id, category_id, date) => {
     VALUES ($1::integer, $2::integer, $3::integer, '${date}T${shiftId + 8}:00:00');`;
     addFunction(queryString, shiftId);
   }
-
-  //2020-10-28T00:00:00
 };
 
 const getUserById = (id) => {
@@ -87,7 +78,6 @@ const getUserById = (id) => {
   });
 };
 
-//Select all events in the week range and set published to true
 const publishWeek = (publish, firstDay, lastDay) => {
   const queryString = `
   UPDATE events SET isPublished = $1
@@ -96,7 +86,6 @@ const publishWeek = (publish, firstDay, lastDay) => {
     return response.rows;
   });
 };
-// react should be able to select multiple grids (find out what event listener to use. onClickHold)
 const updateShiftString = `UPDATE events SET user_id = 2
 WHERE user_id = 3 AND shift_id IN (8,9) AND event_date = '2020-10-27';`;
 
@@ -141,10 +130,3 @@ module.exports = {
   copyShifts,
   getTwilioReminder,
 };
-
-// const { phone_number, name, event_date, username } = event;
-// const datetime = String(event_date).split(' ');
-// const time = datetime[4].split(':');
-// const date = `${datetime[0]}, ${datetime[1]} ${datetime[2]} ${datetime[3]}`;
-// const appointment_time = `${time[0]}:${time[1]}`;
-// const message = `${username}, you have an ${name} at ${appointment_time}`;

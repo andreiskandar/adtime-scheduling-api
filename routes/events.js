@@ -8,7 +8,6 @@ const {
   getEventsForReminder,
 } = require('../controllers/events');
 
-
 // PUT to update and Transfer Shifts
 router.put('/transfer', async (req, res) => {
   try {
@@ -30,7 +29,6 @@ router.put('/publish', (req, res) => {
 // ADD EVENTS
 //api/events/add
 router.post('/add', async (req, res) => {
-  console.log("REQ BODY ADDING SHIFTS", req.body)
   try {
     const { user_id, shift_id, category_id, event_date } = req.body;
     await addShiftsByUser(user_id, shift_id, category_id, event_date);
