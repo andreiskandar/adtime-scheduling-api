@@ -653,10 +653,10 @@ INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 10, 5
 INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 11, 5, '2020-11-06T19:00:00');
 INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 12, 5, '2020-11-06T20:00:00');
 
-INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 4, 1, '2020-11-07T12:00:00');
-INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 5, 1, '2020-11-07T13:00:00');
-INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 6, 1, '2020-11-07T14:00:00');
-INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 7, 1, '2020-11-07T15:00:00');
+-- INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 4, 1, '2020-11-07T12:00:00');
+-- INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 5, 1, '2020-11-07T13:00:00');
+-- INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 6, 1, '2020-11-07T14:00:00');
+-- INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 7, 1, '2020-11-07T15:00:00');
 
 INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 4, 1, '2020-11-08T12:00:00');
 INSERT INTO events (user_id, shift_id, category_id, event_date) VALUES (9, 5, 1, '2020-11-08T13:00:00');
