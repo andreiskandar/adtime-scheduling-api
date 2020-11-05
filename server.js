@@ -1,6 +1,6 @@
 // load .env data into process.env
 // require('dotenv').config();
-require('dotenv').config({ path: __dirname + '/.env' });
+require('dotenv').config({ path: '/moment-api-server' + '/.env' });
 const ENV = process.env.ENV || 'development';
 process.env.TZ = 'PDT';
 const express = require('express');
