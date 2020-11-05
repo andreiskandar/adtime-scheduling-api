@@ -1,4 +1,5 @@
 
+INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Alice Simon', 1, 'alice@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/21.jpg', null, '#b899ff');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Kira Lorraine', 2, 'kira@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/24.jpg', null, '#ffdb99');
