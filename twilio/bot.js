@@ -30,7 +30,7 @@ function processDataToPost(events) {
     });
 }
 
-const minute = 10 / 60;
+const minute = 1800 / 60;
 
 const sendReminderToEmp = () => {
   setInterval(() => {
