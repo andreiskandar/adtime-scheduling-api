@@ -1,5 +1,5 @@
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
-VALUES ('Alice Simon', 1, 'alice@email.com', 'adtscheduling', 'https://randomuser.me/api/portraits/thumb/women/21.jpg', null, '#b899ff');
+VALUES ('Bradley Fung', 1, 'bradley@email.com', 'adtscheduling', 'https://i.ibb.co/RzbqWhG/MS-Paint-Microsoft-Paint-Online-1.png', null, '#b899ff');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Kira Lorraine', 2, 'kira@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/24.jpg', null, '#ffdb99' );
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 

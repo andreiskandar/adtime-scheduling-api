@@ -24,7 +24,7 @@ function processDataToPost(events) {
 }
 
 //enter number of seconds [..] / 60
-const minute = 3 / 60;
+const minute = 6000 / 60;
 
 const sendReminderToUser = () => {
   bot.postMessageToChannel('general', 'mmore testing hereow!', params);

@@ -1,6 +1,6 @@
 // load .env data into process.env
-// require('dotenv').config();
-require('dotenv').config({ path: 'moment-api-server' + '/.env' });
+require('dotenv').config();
+
 const ENV = process.env.ENV || 'development';
 process.env.TZ = 'PDT';
 const express = require('express');
@@ -23,9 +23,9 @@ for (const [mountPoint, router] of Object.entries(routes)) {
   app.use(mountPoint, router);
 }
 
-bot.on('start', sendReminderToUser);
+//bot.on('start', sendReminderToUser);
 
-sendReminderToEmp();
+//sendReminderToEmp();
 
 const port = process.env.port || 3001;
 app.listen(port, () => {
