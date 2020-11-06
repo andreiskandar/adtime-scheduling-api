@@ -22,7 +22,7 @@ for (const [mountPoint, router] of Object.entries(routes)) {
   app.use(mountPoint, router);
 }
 
-bot.on('start', sendReminderToUser);
+// bot.on('start', sendReminderToUser);
 
 // sendReminderToEmp();
 
