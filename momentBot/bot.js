@@ -24,7 +24,7 @@ function processDataToPost(events) {
 }
 
 //enter number of seconds [..] / 60
-const minute = 1 / 60;
+const minute = 1800 / 60;
 
 const sendReminderToUser = () => {
   setInterval(() => {
