@@ -9,8 +9,8 @@ const bodyParser = require('body-parser');
 const routes = require('./routes');
 const morgan = require('morgan');
 
-const { sendReminderToEmp } = require('./twilio/bot');
-const { bot, sendReminderToUser } = require('./momentBot/bot');
+// const { sendReminderToEmp } = require('./twilio/bot');
+// const { bot, sendReminderToUser } = require('./momentBot/bot');
 
 const app = express();
 
