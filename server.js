@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 // const sass       = require("node-sass-middleware");
 const routes = require('./routes');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const { sendReminderToEmp } = require('./twilio/bot');
 const { bot, sendReminderToUser } = require('./momentBot/bot');
@@ -17,6 +18,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(morgan('dev'));
+app.use(cors());
 
 for (const [mountPoint, router] of Object.entries(routes)) {
   app.use(mountPoint, router);
