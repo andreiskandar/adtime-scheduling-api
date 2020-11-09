@@ -1,11 +1,11 @@
-INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color, phone_number) 
-VALUES ('Alice Simon', 1, 'alice@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/21.jpg', null, '#b899ff', '7789970696');
-INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color, phone_number) 
-VALUES ('Kira Lorraine', 2, 'kira@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/24.jpg', null, '#ffdb99', '7788956373');
+INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
+VALUES ('Alice Simon', 1, 'alice@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/21.jpg', null, '#b899ff');
+INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
+VALUES ('test user', 1, 'test@email.com', 'testpassword', 'https://randomuser.me/api/portraits/thumb/women/24.jpg', null, '#ffdb99');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Hugh Jackman', 2, 'hugh@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/men/20.jpg', null, '#e1ffb2');
-INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color, phone_number) 
-VALUES ('Leslie Raoul', 1, 'Leslie@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/51.jpg', null, '#98d4fc', '7789970696');
+INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
+VALUES ('Leslie Raoul', 1, 'Leslie@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/women/51.jpg', null, '#98d4fc');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
 VALUES ('Lex Luthor', 2, 'Lacazette@email.com', 'password', 'https://randomuser.me/api/portraits/thumb/men/58.jpg', null, '#fcbb98');
 INSERT INTO users (name, user_type_id, email, password, avatar, slack_username, color) 
