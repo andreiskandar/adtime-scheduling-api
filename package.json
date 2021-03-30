@@ -23,6 +23,9 @@
     "slackbots": "^1.2.0",
     "twilio": "^3.50.0"
   },
+  "engines": {
+    "node": "12.x"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
