@@ -5,8 +5,13 @@ async function getByEmail(email) {
   SELECT *, users.id as user_id, users.name as username 
   FROM users 
   JOIN user_types ON users.user_type_id = user_types.id WHERE email=$1`;
-  const results = await db.query(queryString, [email]);
-  return results.rows;
+
+  try {
+    const results = await db.query(queryString, [email]);
+    return results.rows;
+  } catch (error) {
+    console.log('something went wrong', error);
+  }
 }
 
 module.exports = {

@@ -1,11 +1,8 @@
 // load .env data into process.env
 require('dotenv').config();
 
-// const ENV = process.env.ENV || 'development';
-// process.env.TZ = 'PDT';
 const express = require('express');
 const bodyParser = require('body-parser');
-// const sass       = require("node-sass-middleware");
 const routes = require('./routes');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -30,5 +27,5 @@ sendReminderToEmp();
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App listening at http://localhost:${port}`);
 });
