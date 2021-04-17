@@ -45,11 +45,9 @@ router.delete('/delete', async (req, res) => {
   console.log('REQ QUERY DELETE', req.query);
   try {
     const { shift_id, event_date, user_id, category_id } = req.query;
-    console.log('shift_id:', shift_id);
     await grabShiftId(shift_id, event_date, user_id, category_id);
     res.status(200).send();
   } catch (err) {
-    console.error('RemoveShiftIdRoute:', err);
     res.status(401).json({ msg: 'Invalid Shift IDs' });
   }
 });
