@@ -4,6 +4,7 @@ const { Pool } = require('pg');
 let dbParams = {};
 
 if (process.env.DB_URL) {
+  console.log('am i true');
   dbParams.connectionString = process.env.DB_URL;
 } else {
   dbParams = {
