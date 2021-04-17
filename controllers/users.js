@@ -18,6 +18,7 @@ const getAllUsers = () => {
 
 async function authenticate(email, password) {
   const results = await userModel.getByEmail(email);
+  console.log('results:', results);
   if (!results.length) {
     throw new Error(`UserController: Cannot find email "${email}" in DB`);
   }
